@@ -21,7 +21,7 @@
 ![](images/servername.png)
 
 
-* authentication method: from dropdown select Active Directory-Password
+* authentication method: from dropdown select **Active Directory-Password**
 * username: **odl_user_xxxxx@xxxxxxxxxxx.onmicrosoft.com**
 * password: **arno32QCO*R1**
 
