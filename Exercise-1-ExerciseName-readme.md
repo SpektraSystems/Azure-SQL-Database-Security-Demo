@@ -80,31 +80,45 @@ Send Alerts to: **username**
 
 In this task, you will look at the SQL Data Discovery and Classification feature that introduces a new tool for discovering, classifying, labeling & reporting the sensitive data in your databases. It introduces a set of advanced services, forming a new SQL Information Protection paradigm aimed at protecting the data in your database.
 
-1.	Go to SQL Database, On the **Advanced Data Security** blade, select the **Data Discovery & Classification** tile.
+1. Go to SQL Database, On the **Advanced Data Security** blade, select the **Data Discovery & Classification** tile.
 
 ![](images/dataclassification.png)
 
 
-2.	In the Data Discovery & Classification blade, select the info link with the message **We have found 16 columns with classification recommendations**.
-3.	Look over the list of recommendations to get a better understanding of the types of data and classifications that can be assigned, based on the built-in classification settings.
-4.	Check the Select all check box at the top of the list to select all the remaining recommended classifications, and then select **Accept selected recommendations**.
-5.	When the save completes, select the **Overview** tab on the Data Discovery & Classification blade to view a report with a full summary of the database classification state.
-6.	image to be taken
+1. In the Data Discovery & Classification blade, select the info link with the message **We have found 16 columns with classification recommendations**.
+1. Look over the list of recommendations to get a better understanding of the types of data and classifications that can be assigned, based on the built-in classification settings.
+1. Check the Select all check box at the top of the list to select all the remaining recommended classifications, and then select **Accept selected recommendations**.
+1. When the save completes, select the **Overview** tab on the Data Discovery & Classification blade to view a report with a full summary of the database classification state.
 
-7.	**Verify by running SQL Query**
+**image to be taken**
+
+**Verify by running SQL Query**
 
 
 ### Task 6: Simulate Attack 
 
 1.	In the Azure Portal, open Resource Group with suffix **-SQL**, navigate to the app service **contosoapp-suffix**.
-2.	Select browse, you will be directed to **Contoso Clinic** webpage.	
-3.	Go to **Patients**, select **SQLi Hints**.
-4.	You will see SQL ingestions that will result into an attack.
-5.	Pick one of them and paste in the search box and select Search.
-6.	Go to SQL Database **Clinic**, select **Advanced Data Security** under Security blade.
-7.	Select **Advanced Threat Protection**, where you can review the alert , also this will be shown as a threat. It will take few minutes to get fetched.
+1.	Select browse, you will be directed to **Contoso Clinic** webpage.	
+1.	Go to **Patients**, select **SQLi Hints**.
+1.	You will see SQL ingestions that will result into an attack.
+1.	Pick one of them and paste in the search box and select Search.
+1.	Go to SQL Database **Clinic**, select **Advanced Data Security** under Security blade.
+1.	Select **Advanced Threat Protection**, where you can review the alert , also this will be shown as a threat. It will take few minutes to get fetched.
 
 
+### Task 7: Vulnerability Scan
 
+The SQL Vulnerability Assessment service is a service that provides visibility into your security state, and includes actionable steps to resolve security issues, and enhance your database security.
+
+1.	Return to the **Advanced Data Security** blade and then select the **Vulnerability Assessment** tile.
+1.	On the Vulnerability Assessment blade, select **Scan** on the toolbar.
+1.	When the scan completes, you will see a dashboard, displaying the number of failing checks, passing checks, and a breakdown of the risk summary by severity level.
+1.	__________
+
+1.	Run a SQL Injection Alert 
+1.	You'll receive an email with security alert (lab user has mailbox) 
+1.	Review the security alerts in ATP 
+1.	Review Audit Logs
+1.	Run a Vulnerability Scan and review results. 
 
 
