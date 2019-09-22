@@ -10,19 +10,20 @@
 
 ### Task 2: Access the Database using SQL Server Management Studio
 
-1. Now, login to **JumpVM** by clicking on **GO TO JumpVM** button on lab details page. On start bar, search SQL and select **Microsoft SQL Server Management Studio 18**.
+1. Now, login to **JumpVM** by clicking on **GO TO JumpVM** button on lab details page. 
 
 ![](images/gotolabvm.png)
 
+1. On start bar, search SQL and select **Microsoft SQL Server Management Studio 18**.
 1. Use the following configurations then click Connect:
-Server name: enter the server name which you can copy from the overview page of SQL Server at the top right corner.
+* Server name: enter the server name which you can copy from the overview page of SQL Server at the top right corner.
 
 ![](images/servername.png)
 
 
-authentication method: from dropdown select Active Directory-Password
-username: **odl_user_xxxxx@xxxxxxxxxxx.onmicrosoft.com**
-password: **arno32QCO*R1**
+* authentication method: from dropdown select Active Directory-Password
+* username: **odl_user_xxxxx@xxxxxxxxxxx.onmicrosoft.com**
+* password: **arno32QCO*R1**
 
 ![](images/sqlauthentiction.png)
 
