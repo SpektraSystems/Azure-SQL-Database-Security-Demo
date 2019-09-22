@@ -22,12 +22,12 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 ### Task 3: Threat Protection 
 1. Open Resource Group with suffix **-SQL**, navigate to the SQL Server. Select **Advanced Data Security** under Security.
 2. Use the following configurations:
-Advanced Data Security: **On**
-Subscription: **Choose your subscription**
-Storage Account: **Choose your storage account**
-Periodic recurring scans: **On**
-Send scan reports to: **username**
-Send Alerts to: **username**
+* Advanced Data Security: **On**
+* Subscription: **Choose your subscription**
+* Storage Account: **Choose your storage account**
+* Periodic recurring scans: **On**
+* Send scan reports to: **username**
+* Send Alerts to: **username**
 3. Select **Save**.
 
 ![](images/advancedsecurity.png)
@@ -115,17 +115,18 @@ In this exercise, you will enable Dynamic Data Masking (DDM). DDM limits sensiti
 
 
 2. Use following configurations:
-Schema: **dbo**
-Table: select **Patients** from dropdown
-Column: **SSN (char)** from dropdown
+* Schema: **dbo**
+* Table: select **Patients** from dropdown
+* Column: **SSN (char)** from dropdown
 
 ![](images/mask1.png)
 
 3. Select **Add**.
 4. Add a mask again by selecting **+Add Mask**.
-5. Table: select **Visits** from dropdown
-Column: **PatientID (int)** from dropdown
-Masking field format: **Number (random number range)** [From: 0 – To: 100]
+5.  Use following configurations:
+* Table: select **Visits** from dropdown
+* Column: **PatientID (int)** from dropdown
+* Masking field format: **Number (random number range)** [From: 0 – To: 100]
 
 ![](images/mask2.png)
 
