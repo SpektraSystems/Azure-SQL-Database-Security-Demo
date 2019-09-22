@@ -2,7 +2,11 @@
 
 ### Task 1: Review Azure SQL Database
 
-1. In the Azure Portal, navigate to the Resource Group with suffix **-SQL**, locate a resource named **Clinic**. This is your **Azure SQL Database**.
+1. In the Azure Portal, navigate to the Resource Groups. There are two resource groups, select the resource group with suffix **-SQL**.
+
+![](images/rgs.png)
+
+1. Locate a resource named **Clinic**. This is your **Azure SQL Database**.
 
 ![](images/clinicsqldatabase.png)
 
