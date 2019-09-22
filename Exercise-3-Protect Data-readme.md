@@ -51,7 +51,7 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 **Verify by running SQL Query**
 
 
-### Task 6: Simulate Attack 
+### Task 5: Simulate Attack 
 
 1.	In the Azure Portal, open Resource Group with suffix **-SQL**, navigate to the app service **contosoapp-suffix**.
 1.	Select browse, you will be directed to **Contoso Clinic** webpage.	
@@ -62,7 +62,7 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 1.	Select **Advanced Threat Protection**, where you can review the alert , also this will be shown as a threat. It will take few minutes to get fetched.
 
 
-### Task 7: Vulnerability Scan
+### Task 6: Vulnerability Scan
 
 The SQL Vulnerability Assessment service is a service that provides visibility into your security state, and includes actionable steps to resolve security issues, and enhance your database security.
 
@@ -78,20 +78,22 @@ The SQL Vulnerability Assessment service is a service that provides visibility i
 1.	Run a Vulnerability Scan and review results. 
 
 
-### Task 8: Application Access: 
-1.	Add a Mask for Credit Card, Email and other personal information in Customer table. 
+### Task 7: Configure Dynamic Data Masking: 
+ 
 In this exercise, you will enable Dynamic Data Masking (DDM). DDM limits sensitive data exposure by masking it to non-privileged users. This feature helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.
 
-i.	Go to SQL Database, On the Advanced Data Security blade, select the Dynamic Data Masking. 
-ii.	Select +Add Mask.
-iii.	Use following configurations and select Add:
-Schema: dbo
-Table: select Patients from dropdown
-Column: SSN (char) from dropdown
-iv.	Add a mask again by selecting +Add Mask.
-v.	Use following configurations and select Add:
-Schema: dbo
-Table: select Visits from dropdown
-Column: PatientID (int) from dropdown
-Masking field format: Number (random number range) [From: 0 – To: 100]
+1. Add a mask by navigating to SQL Database, on the **Advanced Data Security** blade, select the **Dynamic Data Masking**. 
+1. Select **+Add Mask**.
+1. Use following configurations:
+Schema: **dbo**
+Table: select **Patients** from dropdown
+Column: **SSN (char)** from dropdown
+1. Select **Add**.
+1. Add a mask again by selecting **+Add Mask**.
+1. Table: select **Visits** from dropdown
+Column: **PatientID (int)** from dropdown
+Masking field format: **Number (random number range)** [From: 0 – To: 100]
+1. Select **Add**.
 
+### Task 8: Verify data how does it look by using App
+1. Go back to your app service, select **Visits**.
