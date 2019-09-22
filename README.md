@@ -14,6 +14,6 @@
     - [Task 4: Configure SQL Data Discovery and Classification](./Exercise-3-Protect%20Data-readme.md#task-4-configure-sql-data-discovery-and-classification)
     - [Task 5: Simulate Attack](./Exercise-3-Protect%20Data-readme.md#task-6-simulate-attack)
     - [Task 6: Vulnerability Scan](./Exercise-3-Protect%20Data-readme.md#task-7-vulnerability-scan)
-    - [Task 7: Add a mask](./)
-    - [Task 8: Verify data how does it look by using App](./)
+    - [Task 7: Configure Dynamic Data Masking](./Exercise-3-Protect%20Data-readme.md#task-7-configure-dynamic-data-masking)
+    - [Task 8: Verify data how does it look by using App](./Exercise-3-Protect%20Data-readme.md#task-8-verify-data-how-does-it-look-by-using-app)
  
