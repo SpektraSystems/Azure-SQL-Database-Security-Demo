@@ -10,7 +10,7 @@
 
 ### Task 2: Access the Database using SQL Server Management Studio
 
-1. Now, login to **JumpVM** by clicking on **GO TO LAB VM** button on lab details page. On start bar, search SQL and select **Microsoft SQL Server Management Studio 18**.
+1. Now, login to **JumpVM** by clicking on **GO TO JumpVM** button on lab details page. On start bar, search SQL and select **Microsoft SQL Server Management Studio 18**.
 
 ![](images/gotolabvm.png)
 
