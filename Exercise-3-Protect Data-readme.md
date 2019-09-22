@@ -111,7 +111,7 @@ In this exercise, you will enable Dynamic Data Masking (DDM). DDM limits sensiti
 
 1. Add a mask by navigating to SQL Database, on the **Advanced Data Security** blade, go to **Dynamic Data Masking** and select **+Add Mask**.
 
-![](ddm.png)
+![](images/ddm.png)
 
 
 2. Use following configurations:
@@ -119,7 +119,7 @@ Schema: **dbo**
 Table: select **Patients** from dropdown
 Column: **SSN (char)** from dropdown
 
-![](mask1.png)
+![](images/mask1.png)
 
 3. Select **Add**.
 4. Add a mask again by selecting **+Add Mask**.
@@ -127,7 +127,7 @@ Column: **SSN (char)** from dropdown
 Column: **PatientID (int)** from dropdown
 Masking field format: **Number (random number range)** [From: 0 – To: 100]
 
-![](mask2.png)
+![](images/mask2.png)
 
 6. Select **Add**.
 
