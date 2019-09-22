@@ -6,29 +6,29 @@
 Transparent data encryption (TDE) helps protect Azure SQL Database against the threat of malicious offline activity by encrypting data at rest. It performs real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application
 
 1. In the Azure Portal, go to Resource Group with suffix **-SQL**, select the SQL Database **Clinic**.
-1. Select **Transparent data encryption** under the Security blade.
-1. Here you can review; transparent data encryption is already enabled. 
+2. Select **Transparent data encryption** under the Security blade.
+3. Here you can review; transparent data encryption is already enabled. 
 
 ![](images/transdataenc.png)
 
 ### Task 2: Auditing 
 
 1. In SQL Database, under Settings select **Auditing** where you can review that Auditing is enabled and data is being stored in your storage account.
-1. Click on **View Audit Logs**, this will show all the database activities happened recently.
+2. Click on **View Audit Logs**, this will show all the database activities happened recently.
 
 ![](images/auditing.png)
 
 
 ### Task 3: Threat Protection 
 1. Open Resource Group with suffix **-SQL**, navigate to the SQL Server. Select **Advanced Data Security** under Security.
-1. Use the following configurations:
+2. Use the following configurations:
 Advanced Data Security: **On**
 Subscription: **Choose your subscription**
 Storage Account: **Choose your storage account**
 Periodic recurring scans: **On**
 Send scan reports to: **username**
 Send Alerts to: **username**
-1. Select **Save**.
+3. Select **Save**.
 
 ![](images/advancedsecurity.png)
 
@@ -42,19 +42,19 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 ![](images/dataclassification.png)
 
 
-1. In the Data Discovery & Classification blade, select the info link with the message **We have found 16 columns with classification recommendations**.
+2. In the Data Discovery & Classification blade, select the info link with the message **We have found 16 columns with classification recommendations**.
 
 ![](images/16columns.png)
 
 
-1. Look over the list of recommendations to get a better understanding of the types of data and classifications that can be assigned, based on the built-in classification settings.
-1. Check the **Select all** check box at the top of the list to select all the remaining recommended classifications, and then select **Accept selected recommendations**.
+3. Look over the list of recommendations to get a better understanding of the types of data and classifications that can be assigned, based on the built-in classification settings.
+4. Check the **Select all** check box at the top of the list to select all the remaining recommended classifications, and then select **Accept selected recommendations**.
 
 ![](images/acceptrecom.png)
 
 
-1. Select **Save**.
-1. When the save completes, select the **Overview** tab on the Data Discovery & Classification blade to view a report with a full summary of the database classification state.
+5. Select **Save**.
+6. When the save completes, select the **Overview** tab on the Data Discovery & Classification blade to view a report with a full summary of the database classification state.
 
 
 **Verify by running SQL Query**
@@ -73,20 +73,20 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 
 ![](images/sqlihints.png)
 
-1.	You will see SQL ingestions that will result into an attack.
+4.	You will see SQL ingestions that will result into an attack.
 
 ![](images/sqlihints(2).png)
 
-1.	Pick one of them and paste in the search box and select Search.
+5.	Pick one of them and paste in the search box and select Search.
 
 ![](images/searchbox.png)
 
-1.	Now go back to SQL Database **Clinic**, select **Advanced Data Security** under Security blade.
-1.	Select **Advanced Threat Protection**.
+6.	Now go back to SQL Database **Clinic**, select **Advanced Data Security** under Security blade.
+7.	Select **Advanced Threat Protection**.
 
-![](images/searchbox.png)
+![](images/advthreatprot.png)
 
-1. Here you can review the alert , also this will be shown as a threat. It will take few minutes to get fetched.
+8. Here you can review the alert , also this will be shown as a threat. It will take few minutes to get fetched.
 
 
 ### Task 6: Vulnerability Scan
@@ -109,18 +109,27 @@ The SQL Vulnerability Assessment service is a service that provides visibility i
  
 In this exercise, you will enable Dynamic Data Masking (DDM). DDM limits sensitive data exposure by masking it to non-privileged users. This feature helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.
 
-1. Add a mask by navigating to SQL Database, on the **Advanced Data Security** blade, select the **Dynamic Data Masking**. 
-1. Select **+Add Mask**.
-1. Use following configurations:
+1. Add a mask by navigating to SQL Database, on the **Advanced Data Security** blade, go to **Dynamic Data Masking** and select **+Add Mask**.
+
+![](ddm.png)
+
+
+2. Use following configurations:
 Schema: **dbo**
 Table: select **Patients** from dropdown
 Column: **SSN (char)** from dropdown
-1. Select **Add**.
-1. Add a mask again by selecting **+Add Mask**.
-1. Table: select **Visits** from dropdown
+
+![](mask1.png)
+
+3. Select **Add**.
+4. Add a mask again by selecting **+Add Mask**.
+5. Table: select **Visits** from dropdown
 Column: **PatientID (int)** from dropdown
 Masking field format: **Number (random number range)** [From: 0 – To: 100]
-1. Select **Add**.
+
+![](mask2.png)
+
+6. Select **Add**.
 
 ### Task 8: Verify data how does it look by using App
 1. Go back to your app service, select **Visits**.
