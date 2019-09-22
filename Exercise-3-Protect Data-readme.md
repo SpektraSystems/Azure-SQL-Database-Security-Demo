@@ -66,11 +66,10 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 
 ![](images/appservice.png)
 
-1.	You will be directed to **Contoso Clinic** webpage, select **Patients**, 
+2.	You will be directed to **Contoso Clinic** webpage, select **Patients**, 
 
 ![](images/contosowebpage.png)
-
-1.	Select **SQLi Hints**.
+3.	Select **SQLi Hints**.
 
 ![](images/sqlihints.png)
 
