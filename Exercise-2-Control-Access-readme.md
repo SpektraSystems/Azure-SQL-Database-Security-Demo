@@ -14,8 +14,8 @@
 
 ![](images/gotolabvm.png)
 
-1. On start bar, search SQL and select **Microsoft SQL Server Management Studio 18**.
-1. Use the following configurations then click Connect:
+2. On start bar, search SQL and select **Microsoft SQL Server Management Studio 18**.
+3. Use the following configurations then click Connect:
 * Server name: enter the server name which you can copy from the overview page of SQL Server at the top right corner.
 
 ![](images/servername.png)
