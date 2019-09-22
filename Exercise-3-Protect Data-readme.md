@@ -15,6 +15,7 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 
 1. In SQL Database, under Settings select **Auditing** where you can review that Auditing is enabled and data is being stored in your storage account.
 1. Click on **View Audit Logs**, this will show all the database activities happened recently.
+
 ![](images/auditing.png)
 
 
@@ -42,24 +43,51 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 
 
 1. In the Data Discovery & Classification blade, select the info link with the message **We have found 16 columns with classification recommendations**.
+
+![](images/16columns.png)
+
+
 1. Look over the list of recommendations to get a better understanding of the types of data and classifications that can be assigned, based on the built-in classification settings.
-1. Check the Select all check box at the top of the list to select all the remaining recommended classifications, and then select **Accept selected recommendations**.
+1. Check the **Select all** check box at the top of the list to select all the remaining recommended classifications, and then select **Accept selected recommendations**.
+
+![](images/acceptrecom.png)
+
+
+1. Select **Save**.
 1. When the save completes, select the **Overview** tab on the Data Discovery & Classification blade to view a report with a full summary of the database classification state.
 
-**image to be taken**
 
 **Verify by running SQL Query**
 
 
 ### Task 5: Simulate Attack 
 
-1.	In the Azure Portal, open Resource Group with suffix **-SQL**, navigate to the app service **contosoapp-suffix**.
-1.	Select browse, you will be directed to **Contoso Clinic** webpage.	
-1.	Go to **Patients**, select **SQLi Hints**.
+1.	In the Azure Portal, open Resource Group with suffix **-SQL**, navigate to the app service **contosoapp-suffix** and select **Browse**.
+
+![](images/appservice.png)
+
+1.	You will be directed to **Contoso Clinic** webpage, select **Patients**, 
+
+![](images/contosowebpage.png)
+
+1.	Select **SQLi Hints**.
+
+![](images/sqlihints.png)
+
 1.	You will see SQL ingestions that will result into an attack.
+
+![](images/sqlihints(2).png)
+
 1.	Pick one of them and paste in the search box and select Search.
-1.	Go to SQL Database **Clinic**, select **Advanced Data Security** under Security blade.
-1.	Select **Advanced Threat Protection**, where you can review the alert , also this will be shown as a threat. It will take few minutes to get fetched.
+
+![](images/searchbox.png)
+
+1.	Now go back to SQL Database **Clinic**, select **Advanced Data Security** under Security blade.
+1.	Select **Advanced Threat Protection**.
+
+![](images/searchbox.png)
+
+1. Here you can review the alert , also this will be shown as a threat. It will take few minutes to get fetched.
 
 
 ### Task 6: Vulnerability Scan
