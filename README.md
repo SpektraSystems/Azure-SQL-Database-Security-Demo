@@ -48,7 +48,7 @@ Security is a top concern for managing databases, and it has always been a prior
 
 1. Now, login to **JumpVM** by clicking on **GO TO JumpVM** button on lab details page. 
 
-![](images/gotolabvm.png)
+![](images/gotojumpvm.png)
 
 2. On start bar, search SQL and select **Microsoft SQL Server Management Studio 18**.
 3. Use the following configurations then click Connect:
