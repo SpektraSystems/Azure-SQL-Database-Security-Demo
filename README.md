@@ -64,10 +64,14 @@ Security is a top concern for managing databases, and it has always been a prior
 ![](images/sqlauthentiction.png)
 
 
-**iii.	You will get a login failure which will be due to the Firewall rules Image
-iv.	Go back to SQL server, under security blade select Firewalls and virtual networks.?????
+4.	You will get a login failure which will state: ***Your client IP address does not have access to the server. Sign in to an Azure Account and create a new firewall rule to enable access.***
+
+![](images/firewallerror.png)
+
+
+***iv.	Go back to SQL server, under security blade select Firewalls and virtual networks.?????
 v.	Should we show a login failure first and then add firewall IP? 
-vi.	Show the login failure due to firewall then add the rule.**
+vi.	Show the login failure due to firewall then add the rule.***
 
 ## Exercise 3: Protect Data 
 
