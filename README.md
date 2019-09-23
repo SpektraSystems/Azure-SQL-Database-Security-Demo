@@ -1,7 +1,9 @@
 # Azure-SQL-Database-Security-Demo
 
 ## Overview
-___________________
+Security is a top concern for managing databases, and it has always been a priority for Azure SQL Database. Your databases can be tightly secured to help satisfy most regulatory or security requirements. 
+
+
 
 **Contents**
 
