@@ -38,7 +38,7 @@ Security is a top concern for managing databases, and it has always been a prior
 
 ### Task 1: Configure Azure AD Login for your Azure SQL DB
 
-1. Login into the Azure Portal, open **Resource Group** with suffix **-SQL**, navigate to the SQL Server.
+1. Login into the Azure Portal, open **Resource Group** with suffix **-SQL**, navigate to the SQL Server **contososerv-suffix**.
 1. Under the **Settings** blade, select **Active Directory Admin**. Here you can review your username registered as Active Directory Admin.
 
 ![](images/activediradmin.png)
@@ -77,14 +77,14 @@ vi.	Show the login failure due to firewall then add the rule.**
 Transparent data encryption (TDE) helps protect Azure SQL Database against the threat of malicious offline activity by encrypting data at rest. It performs real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application
 
 1. In the Azure Portal, go to Resource Group with suffix **-SQL**, select the SQL Database **Clinic**.
-2. Select **Transparent data encryption** under the Security blade.
+2. Select **Transparent data encryption** under the **Security** blade.
 3. Here you can review; transparent data encryption is already enabled. 
 
 ![](images/transdataenc.png)
 
 ### Task 2: Auditing 
 
-1. In SQL Database, under Settings select **Auditing** where you can review that Auditing is enabled and data is being stored in your storage account.
+1. In SQL Database, select **Auditing** under **Security** where you can review that Auditing is enabled and data is being stored in your storage account.
 2. Click on **View Audit Logs**, this will show all the database activities happened recently.
 
 ![](images/auditing.png)
@@ -109,7 +109,7 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 
 In this task, you will look at the SQL Data Discovery and Classification feature that introduces a new tool for discovering, classifying, labeling & reporting the sensitive data in your databases. It introduces a set of advanced services, forming a new SQL Information Protection paradigm aimed at protecting the data in your database.
 
-1. Go to SQL Database, On the **Advanced Data Security** blade, select the **Data Discovery & Classification** tile.
+1. Go to SQL Database, on the **Advanced Data Security** blade, select the **Data Discovery & Classification** tile.
 
 ![](images/dataclassification.png)
 
@@ -145,16 +145,16 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 
 ![](images/sqlihints.png)
 
-4.	You will see SQL ingestions that will result into an attack.
+4. Few text formats will appear which will let you create SQL ingections that will result into an attack.
 
 ![](images/sqlihints(2).png)
 
-5.	Pick one of them and paste in the search box and select Search.
+5.	Pick one of them and paste in the search box and select **Search**.
 
 ![](images/searchbox.png)
 
-6.	Now go back to SQL Database **Clinic**, select **Advanced Data Security** under Security blade.
-7.	Select **Advanced Threat Protection**.
+6.	Now go back to SQL Database **Clinic**. .
+7.	Go to **Advanced Data Security** under Security blade and select **Advanced Threat Protection**.
 
 ![](images/advthreatprot.png)
 
@@ -181,12 +181,13 @@ The SQL Vulnerability Assessment service is a service that provides visibility i
  
 In this exercise, you will enable Dynamic Data Masking (DDM). DDM limits sensitive data exposure by masking it to non-privileged users. This feature helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.
 
-1. Add a mask by navigating to SQL Database, on the **Advanced Data Security** blade, go to **Dynamic Data Masking** and select **+Add Mask**.
+1. Now navigating to SQL Database **Clinic** to add a mask.
+2. Go to **Dynamic Data Masking** under **Security** blade, then select **+Add Mask**.
 
 ![](images/ddm.png)
 
 
-2. Use following configurations:
+2. Use following configurations to create a mask rule:
 * Schema: **dbo**
 * Table: select **Patients** from dropdown
 * Column: **SSN (char)** from dropdown
@@ -198,11 +199,13 @@ In this exercise, you will enable Dynamic Data Masking (DDM). DDM limits sensiti
 5.  Use following configurations:
 * Table: select **Visits** from dropdown
 * Column: **PatientID (int)** from dropdown
-* Masking field format: **Number (random number range)** [From: 0 – To: 100]
+* Masking field format: **Number (random number range)**
+* Enter random value for **To** and **For**.
 
 ![](images/mask2.png)
 
-6. Select **Add**.
+6. Then select **Add**. 
+Your mask rules are ready.
 
 ### Task 8: Verify data how does it look by using App
 1. Go back to your app service, select **Visits**.
