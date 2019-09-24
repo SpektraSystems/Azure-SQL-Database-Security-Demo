@@ -28,7 +28,7 @@ Security is a top concern for managing databases, and it has always been a prior
  
 ## Exercise 0: Introduction to Azure Portal
 
-This lab will take you through Azure login and portal experience and the pre-requisite environment.
+This exercise will take you through Azure login and portal experience and the pre-requisite environment.
 
    * [Task 1: Sign Up for Pre-configured Environment](#exercise-01-sign-up-for-pre-configured-environment)
    * [Task 2: Log into your Azure Portal and Verify access to the Subscription](#exercise-02-log-into-your-azure-portal-and-verify-access-to-the-subscription)
@@ -36,8 +36,7 @@ This lab will take you through Azure login and portal experience and the pre-req
 
 ### Task 1: Sign Up for pre configured environment
 
-In this exercise, you will create a source environment.
-1.	Navigate to bitly link which was provided by instructor and register by providing all required information and clicking on **SUBMIT button**.<br/>
+1.	Navigate to bitly link which was provided by instructor and register by providing all required information and clicking on **SUBMIT** button.<br/>
 
 ![](images/1registernow.png)
 
@@ -47,15 +46,16 @@ In this exercise, you will create a source environment.
 
 3. You will see the environment details soon below.<br/>
 
-![](images/3labdetailpg.png)
+![](images/labdetailpg.png)
 
 Please ensure to take the values assigned to your deployment.
 
 
 ### Task 2: Log into your Azure Portal and Verify access to the Subscription
 
-In this exercise, you will log into the **Azure Portal** using your Azure credentials and you will verify the type of role you are assigned in this Subscription.
-1.  Navigate to https://portal.azure.com and login (from the previous step).
+In this exercise, you will log into the **Azure Portal** using your Azure credentials.
+
+1.  Navigate to https://portal.azure.com.
 2.  Enter the **Username** which was displayed in the previous window and click on **Next**.<br/>
 
 ![](images/1signin.png)
@@ -64,7 +64,7 @@ In this exercise, you will log into the **Azure Portal** using your Azure creden
 
 ![](images/2signin.png)
 
-4.	In the Welcome to **Microsoft Azure** pop-up window, click **Maybe Late**r.
+4.	In the Welcome to **Microsoft Azure** pop-up window, click **Maybe Later**. Now you have login successfully.
 
 ![](images/maybelater1.png)
 
@@ -339,3 +339,4 @@ Your mask rules are ready.
 
 ### Task 9: Verify data how does it look by using App
 1. Go back to your app service, select **Visits**.
+**Verify data how does it look by logging in as non-admin user in SQL MGMT Studio**
