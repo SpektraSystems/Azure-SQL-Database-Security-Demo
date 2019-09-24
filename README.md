@@ -99,19 +99,19 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 ### Task 2: Always Encrypted
 1. Go to **JumpVM**, then select your database **Clinic** > **Tables** > **dbo.Patients** > **Encrypt Columns**.
 
-img
+![](images/alwaysenc.png)
 
 2. You will get a pop-up window, where you will enable encryption. So select **Next**.
 
-img
+![](images/alwaysenc1.png)
 
 3. Check the box for **Birth Date** and for choose type select **Randomized*.
 
-img
+![](images/alwaysenc2.png)
 
 4. Then on next step, select **Azure Key Vault** and then select **sign in**.
 
-img
+![](images/alwaysenc3.png)
 
 5. An authentication window will appear on the screen. Enter you username and password there.
 
