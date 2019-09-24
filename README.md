@@ -128,11 +128,8 @@ In this exercise, you will log into the **Azure Portal** using your Azure creden
 
 ![](images/firewallerror.png)
 
-5. Then go back to your SQL Server **contososerv-suffix**, select **Firewall and virtul networks**.
-
-![](images/searchbox.png)
-
-6. **Allow Access to Azure Services** - Select **ON** to enable firwall, then add fiirwall IP that ranges between the **Client IP address** you see in you sql server. 
+5. Then go back to your SQL Server **contososerv-suffix**.
+6. Select **Firewall and virtual networks**. Then select **ON** for **Allow Access to Azure Services** to enable firwall, then add fiirwall IP that ranges between the **Client IP address** you see in you sql server. 
 
 ![](images/firewalladip.png)
 
