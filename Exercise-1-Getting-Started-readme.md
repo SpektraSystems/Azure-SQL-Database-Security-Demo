@@ -9,4 +9,3 @@
 2. Locate a resource named **Clinic**. This is your **Azure SQL Database**.
 
 ![](images/clinicsqldatabase.png)
-
