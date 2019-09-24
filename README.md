@@ -129,15 +129,19 @@ In this exercise, you will log into the **Azure Portal** using your Azure creden
 
 5. Then go back to your SQL Server **contososerv-suffix**, select **Firewall and virtul networks**.
 
-img
+![](images/searchbox.png)
 
-6. **Allow Access to Azure Services** - Select **ON** to enable firwall, then add fiirwall IP 
+6. **Allow Access to Azure Services** - Select **ON** to enable firwall, then add fiirwall IP that ranges between the **Client IP address** you see in you sql server. 
 
-img
+![](images/firewalladip.png)
 
-***iv.	Go back to SQL server, under security blade select Firewalls and virtual networks.?????
-v.	Should we show a login failure first and then add firewall IP? 
-vi.	Show the login failure due to firewall then add the rule.***
+7. **Save** the changes.
+
+![](images/firewallsave.png)
+
+8. Now go back to **JumpVM** and login again, you will get login succesfully. Also you can review you SQL Database **Clinin** by expanding **Database** 
+
+![](images/successfullogin.png)
 
 ## Exercise 3: Protect Data 
 
