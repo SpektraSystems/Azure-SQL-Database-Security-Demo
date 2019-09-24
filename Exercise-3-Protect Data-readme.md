@@ -200,3 +200,4 @@ Your mask rules are ready.
 
 ### Task 9: Verify data how does it look by using App
 1. Go back to your app service, select **Visits**.
+**Verify data how does it look by logging in as non-admin user in SQL MGMT Studio**
