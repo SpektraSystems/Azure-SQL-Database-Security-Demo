@@ -6,7 +6,10 @@ Security is a top concern for managing databases, and it has always been a prior
 
 
 **Contents**
-
+  - [Exercise 0: Introduction to Azure Portal](./Exercise-0-Intorduction-To-Azure-Portal-readme.md#exercise-0-introduction-to-azure-portal)
+    - [Task 1: Sign Up for pre configured environment](./README.md#task-1-review-azure-s)
+    - [Task 2: Log into your Azure Portal and Verify access to the Subscription](./README.md#task-1-review-azure-s)
+  
   - [Exercise 1: Getting Started](./README.md#exercise-1-perform-database-assessments)
     - [Task 1: Review Azure SQL Database](./README.md#task-1-review-azure-sql-database)
   - [Exercise 2: Control Access](./README.md#exercise-2-control-access)
