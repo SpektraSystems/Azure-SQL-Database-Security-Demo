@@ -77,7 +77,7 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 
 ![](images/sqlihints(2).png)
 
-5.	Pick one of them and paste in the search box and select Search.
+5.	Pick the third one of them and paste in the search box and select Search.
 
 ![](images/searchbox.png)
 
