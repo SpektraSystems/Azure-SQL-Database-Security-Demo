@@ -225,9 +225,6 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 6. When the save completes, select the **Overview** tab on the Data Discovery & Classification blade to view a report with a full summary of the database classification state.
 
 
-**Verify by running SQL Query**
-
-
 ### Task 6: Simulate Attack 
 
 1.	In the Azure Portal, open Resource Group with suffix **-SQL**, navigate to the app service **contosoapp-suffix** and select **Browse**.
@@ -237,24 +234,40 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 2.	You will be directed to **Contoso Clinic** webpage, select **Patients**, 
 
 ![](images/contosowebpage.png)
-3.	Select **SQLi Hints**.
 
-![](images/sqlihints.png)
-
-4. Few text formats will appear which will let you create SQL ingections that will result into an attack.
-
-![](images/sqlihints(2).png)
-
-5.	Pick one of them and paste in the search box and select **Search**.
+3.	In the **Search Box**, put the following code and  click on **Search**.
+**code**
 
 ![](images/searchbox.png)
 
-6.	Now go back to SQL Database **Clinic**. .
-7.	Go to **Advanced Data Security** under Security blade and select **Advanced Threat Protection**.
+4. This will create an SQL Injection in the database.
 
-![](images/advthreatprot.png)
+5. You will receive an alert email regarding the threat, to review that navigate to https://portal.office.com.
+6. Select **Outlook**.
 
-8. Here you can review the alert , also this will be shown as a threat. It will take few minutes to get fetched.
+![](images/outlook.png)
+
+7. Then review the email which shows details about the threat.
+
+![](images/mailerror.png)
+
+8.	Also, the threat can be reviewd from **Azure Portal**. Go to SQL Database **Clinic**.
+9. Then go to **Advanced Data Security** under Security blade, select **Advanced Threat Protection**. Here you can review the threat.
+
+![](images/advthreatpro.png)
+ 
+10. By selecting **Advanced Threat Protection**, you can review the threat as shown below in the image. Select the **Potential SQL Injcetion**.
+
+![](images/threat1.png)
+
+11. Here is the database in which threat is found. Select the sql database **Clinic**.
+
+![](images/threat2.png)
+
+12. In this section you will get the information about threat.
+
+![](images/threat3.png)
+
 
 
 ### Task 7: Vulnerability Scan
