@@ -64,22 +64,18 @@ In this exercise, you will log into the **Azure Portal** using your Azure creden
 
 ![](images/2signin.png)
 
-4.	In the Welcome to **Microsoft Azure** pop-up window, click **Maybe Late**r. Initialize the **Azure CLI**.
+4.	In the Welcome to **Microsoft Azure** pop-up window, click **Maybe Late**r.
 
 ![](images/maybelater1.png)
 
 5. You will see two Resource Groups on which you have access. 
-6. Click on **ODL-sql-security-xxxxx-SQL** Resource Group which contains the pre-deployed Database Migration Server as shown below:
+6. Click on **ODL-sql-security-xxxxx-SQL** Resource Group which contains the pre-deployed Azure SQL Database as shown below:
 
 ![](images/overview1.png)
 
 7. Click on **ODL-sql-security-xxxxx-JumpVM** Resource Group which contains the pre-deployed on-premises infrastructure.
 
 ![](images/overview2.png)
-
-8. Click on **JumpVM** virtual machine:
-
-![](images/vmoverview.png)
 
 
 ## Exercise 1: Perform database assessments
