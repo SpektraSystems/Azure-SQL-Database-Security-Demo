@@ -159,7 +159,7 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 
 ![](images/alwaysenc1.png)
 
-3. Check the box for **Birth Date** and for **choose type** select **Randomized*.
+3. Check the box for **Birth Date** and for **choose type** select **Randomized**.
 
 ![](images/alwaysenc2.png)
 
