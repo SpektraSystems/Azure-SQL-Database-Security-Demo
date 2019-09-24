@@ -181,9 +181,12 @@ img
 
 ### Task 3: Auditing
 1. In SQL Database, select **Auditing** under **Security** where you can review that Auditing is enabled and data is being stored in your storage account.
-2. Click on **View Audit Logs**, this will show all the database activities happened recently.
 
 ![](images/auditing.png)
+
+2. Click on **View Audit Logs**, this will show all the database activities happened recently.
+
+![](images/viewaudit.png)
 
 
 ### Task 4: Threat Protection 
@@ -224,6 +227,29 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 5. Select **Save**.
 6. When the save completes, select the **Overview** tab on the Data Discovery & Classification blade to view a report with a full summary of the database classification state.
 
+7. To check how this works in respect to the app service, will go to the app service **contosoapp-suffix**.
+8. Select **Browse**, this will open **Contoso Clinic** webpage.
+
+![](images/contosowebpage.png)
+
+9. Now navigate to **Patients**. Then perform an operation by selecting **Details** of any patient where this will be reflected in the audit log in auditing. 
+
+![](images/)
+
+10. The actions performed on the webpage will directly get logged into audit logs which can be reviewed. 
+11. In SQL Database **Clinic**, select **Auditing** under **Security** where you can review the audit logs. Select **View Audit Logs**.
+
+![](images/contosowebpage.png) 
+
+12. 
+
+auditthreat1
+
+13. 
+
+auditthreat2
+
+
 
 ### Task 6: Simulate Attack 
 
@@ -236,7 +262,7 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 ![](images/contosowebpage.png)
 
 3.	In the **Search Box**, put the following code and  click on **Search**.
-**code**
+**' UNION SELECT '0', '1', '2', STUFF((select name from sys.tables FOR XML PATH('')),1,1,''), '4', '5', '6', '7', '8', '2010-10-10' --**
 
 ![](images/searchbox.png)
 
@@ -251,7 +277,7 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 
 ![](images/mailerror.png)
 
-8.	Also, the threat can be reviewd from **Azure Portal**. Go to SQL Database **Clinic**.
+8.	Also, the threat can be reviewd from **Azure Portal**. To check through the portal, go to SQL Database **Clinic**.
 9. Then go to **Advanced Data Security** under Security blade, select **Advanced Threat Protection**. Here you can review the threat.
 
 ![](images/advthreatpro.png)
@@ -267,7 +293,6 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 12. In this section you will get the information about threat.
 
 ![](images/threat3.png)
-
 
 
 ### Task 7: Vulnerability Scan
