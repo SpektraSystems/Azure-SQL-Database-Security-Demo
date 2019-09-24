@@ -58,7 +58,7 @@ Security is a top concern for managing databases, and it has always been a prior
 
 
 * authentication method: from dropdown select **Active Directory-Password**
-* username: **odl_user_xxxxx@xxxxxxxxxxx.onmicrosoft.com**
+* username: **odl_user_xxxxx@xxxxxxxxxxx.xxxxxxxxxxx.com**
 * password: **arno32QCO*R1**
 
 ![](images/sqlauthentiction.png)
@@ -68,6 +68,13 @@ Security is a top concern for managing databases, and it has always been a prior
 
 ![](images/firewallerror.png)
 
+5. Then go back to your SQL Server **contososerv-suffix**, select **Firewall and virtul networks**.
+
+img
+
+6. **Allow Access to Azure Services** - Select **ON** to enable firwall, then add fiirwall IP 
+
+img
 
 ***iv.	Go back to SQL server, under security blade select Firewalls and virtual networks.?????
 v.	Should we show a login failure first and then add firewall IP? 
@@ -86,15 +93,39 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 
 ![](images/transdataenc.png)
 
-### Task 2: Auditing 
+### Task 2: Always Encrypted
+1. Go to **JumpVM**, then select your database **Clinic** > **Tables** > **dbo.Patients** > **Encrypt Columns**.
 
+img
+
+2. You will get a pop-up window, where you will enable encryption. So select **Next**.
+
+img
+
+3. Check the box for **Birth Date** and for choose type select **Randomized*.
+
+img
+
+4. Then on next step, select **Azure Key Vault** and then select **sign in**.
+
+img
+
+5. An authentication window will appear on the screen. Enter you username and password there.
+
+img
+
+6. Next, select the Key Vault provided you in resource group **-SQL** from the dropdown.
+
+
+
+### Task 3: Auditing
 1. In SQL Database, select **Auditing** under **Security** where you can review that Auditing is enabled and data is being stored in your storage account.
 2. Click on **View Audit Logs**, this will show all the database activities happened recently.
 
 ![](images/auditing.png)
 
 
-### Task 3: Threat Protection 
+### Task 4: Threat Protection 
 1. Open Resource Group with suffix **-SQL**, navigate to the SQL Server. Select **Advanced Data Security** under Security.
 2. Use the following configurations:
 * Advanced Data Security: **On**
@@ -109,7 +140,7 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 3. Select **Save**.
 
 
-### Task 4: Configure SQL Data Discovery and Classification
+### Task 5: Configure SQL Data Discovery and Classification
 
 In this task, you will look at the SQL Data Discovery and Classification feature that introduces a new tool for discovering, classifying, labeling & reporting the sensitive data in your databases. It introduces a set of advanced services, forming a new SQL Information Protection paradigm aimed at protecting the data in your database.
 
@@ -136,7 +167,7 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 **Verify by running SQL Query**
 
 
-### Task 5: Simulate Attack 
+### Task 6: Simulate Attack 
 
 1.	In the Azure Portal, open Resource Group with suffix **-SQL**, navigate to the app service **contosoapp-suffix** and select **Browse**.
 
@@ -165,7 +196,7 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 8. Here you can review the alert , also this will be shown as a threat. It will take few minutes to get fetched.
 
 
-### Task 6: Vulnerability Scan
+### Task 7: Vulnerability Scan
 
 The SQL Vulnerability Assessment service is a service that provides visibility into your security state, and includes actionable steps to resolve security issues, and enhance your database security.
 
@@ -181,7 +212,7 @@ The SQL Vulnerability Assessment service is a service that provides visibility i
 1.	Run a Vulnerability Scan and review results. 
 
 
-### Task 7: Configure Dynamic Data Masking: 
+### Task 8: Configure Dynamic Data Masking: 
  
 In this exercise, you will enable Dynamic Data Masking (DDM). DDM limits sensitive data exposure by masking it to non-privileged users. This feature helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.
 
@@ -211,5 +242,5 @@ In this exercise, you will enable Dynamic Data Masking (DDM). DDM limits sensiti
 6. Then select **Add**. 
 Your mask rules are ready.
 
-### Task 8: Verify data how does it look by using App
+### Task 9: Verify data how does it look by using App
 1. Go back to your app service, select **Visits**.
