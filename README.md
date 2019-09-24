@@ -163,11 +163,11 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 
 ![](images/alwaysenc1.png)
 
-3. Check the box for **Birth Date** and for choose type select **Randomized*.
+3. Check the box for **Birth Date** and for **choose type** select **Randomized*.
 
 ![](images/alwaysenc2.png)
 
-4. Then on next step, select **Azure Key Vault** and then select **sign in**.
+4. Select **Next**. On next step, select **Azure Key Vault** and then click on **sign in** button.
 
 ![](images/alwaysenc3.png)
 
