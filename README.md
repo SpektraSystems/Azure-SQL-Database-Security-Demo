@@ -6,9 +6,9 @@ Security is a top concern for managing databases, and it has always been a prior
 
 
 **Contents**
-  - [Exercise 0: Introduction to Azure Portal](./Exercise-0-Intorduction-To-Azure-Portal-readme.md#exercise-0-introduction-to-azure-portal)
-    - [Task 1: Sign Up for pre configured environment](./README.md#task-1-review-azure-s)
-    - [Task 2: Log into your Azure Portal and Verify access to the Subscription](./README.md#task-1-review-azure-s)
+  - [Exercise 0: Introduction to Azure Portal](./README.md#exercise-0-introduction-to-azure-portal)
+    - [Task 1: Sign Up for pre configured environment](./README.md#task-1-sign-up-for-pre-configured-environment)
+    - [Task 2: Log into your Azure Portal and Verify access to the Subscription](./README.md#task-2-log-into-your-azure-portal-and-verify-access-to-the-subscription)
   
   - [Exercise 1: Getting Started](./README.md#exercise-1-perform-database-assessments)
     - [Task 1: Review Azure SQL Database](./README.md#task-1-review-azure-sql-database)
@@ -29,8 +29,8 @@ Security is a top concern for managing databases, and it has always been a prior
 
 This lab will take you through Azure login and portal experience and the pre-requisite environment.
 
-   * [Exercise 01: Sign Up for Pre-configured Environment](#exercise-01-sign-up-for-pre-configured-environment)
-   * [Exercise 02: Log into your Azure Portal and Verify access to the Subscription](#exercise-02-log-into-your-azure-portal-and-verify-access-to-the-subscription)
+   * [Task 1: Sign Up for Pre-configured Environment](#exercise-01-sign-up-for-pre-configured-environment)
+   * [Task 2: Log into your Azure Portal and Verify access to the Subscription](#exercise-02-log-into-your-azure-portal-and-verify-access-to-the-subscription)
  
 
 ### Task 1: Sign Up for pre configured environment
