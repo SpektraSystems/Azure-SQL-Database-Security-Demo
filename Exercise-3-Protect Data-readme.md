@@ -81,12 +81,14 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 
 ![](images/searchbox.png)
 
-6.	Now go back to SQL Database **Clinic**, select **Advanced Data Security** under Security blade.
-7.	Select **Advanced Threat Protection**.
+6.	Now go back to SQL Database **Clinic**
+7. Go to **Advanced Data Security** under Security blade, select **Advanced Threat Protection**. Here you can review the SQL Injection.
 
-![](images/advthreatprot.png)
+![](images/advthreatpro.png)
 
-8. Here you can review the alert , also this will be shown as a threat. It will take few minutes to get fetched.
+8.  , also this will be shown as a threat. It will take few minutes to get fetched.
+
+
 
 
 ### Task 6: Vulnerability Scan
