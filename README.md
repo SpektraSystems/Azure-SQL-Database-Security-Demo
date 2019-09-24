@@ -137,7 +137,7 @@ In this exercise, you will log into the **Azure Portal** using your Azure creden
 
 ![](images/firewallsave.png)
 
-8. Now go back to **JumpVM** and login again, you will get login succesfully. Also you can review you SQL Database **Clinin** by expanding **Database** 
+8. Now go back to **JumpVM** and login again, you will get login succesfully. Also you can review you SQL Database **Clinic** by expanding **Database** 
 
 ![](images/successfullogin.png)
 
