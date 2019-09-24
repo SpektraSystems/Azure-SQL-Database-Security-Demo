@@ -245,11 +245,11 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 
 ![](images/auditafterthreat1.png)
 
-13. Then expand first activity, which will further you show you details about the operation you performed in previous step (Step 9).
+13. Then expand first activity, which will further show you details about the operation you performed in previous step (Step 9). It will refer to what kind of information is accessed.
 
 ![](images/auditafterthreat2.png)
 
-This is how one can review all the activites.
+This is how one can review all the activites, that which application has access the confidential information.
 
 ### Task 6: Simulate Attack 
 
