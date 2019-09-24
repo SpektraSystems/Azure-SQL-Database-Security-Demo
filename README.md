@@ -17,13 +17,14 @@ Security is a top concern for managing databases, and it has always been a prior
     - [Task 2: Access the Database using SQL Server Management Studio](./README.md#task-2-access-the-database-using-sql-server-management-studio)
   - [Exercise 3: Protect Data](./README.md#exercise-3-protect-data)
     - [Task 1: Transparent Data Encryption](./README.md#task-1-transparent-data-encryption)
-    - [Task 2: Auditing](./README.md#task-2-auditing)
-    - [Task 3: Threat Protection](./README.md#task-3-threat-protection)
-    - [Task 4: Configure SQL Data Discovery and Classification](./README.md#task-4-configure-sql-data-discovery-and-classification)
-    - [Task 5: Simulate Attack](./README.md#task-5-simulate-attack)
-    - [Task 6: Vulnerability Scan](./README.md#task-6-vulnerability-scan)
-    - [Task 7: Configure Dynamic Data Masking](./README.md#task-7-configure-dynamic-data-masking)
-    - [Task 8: Verify data how does it look by using App](./README.md#task-8-verify-data-how-does-it-look-by-using-app)
+    - [Task 2: Always Encrypted](./README.md#task-2-always-encrypted)
+    - [Task 3: Auditing](./README.md#task-3-auditing)
+    - [Task 4: Threat Protection](./README.md#task-4-threat-protection)
+    - [Task 5: Configure SQL Data Discovery and Classification](./README.md#task-5-configure-sql-data-discovery-and-classification)
+    - [Task 6: Simulate Attack](./README.md#task-6-simulate-attack)
+    - [Task 7: Vulnerability Scan](./README.md#task-7-vulnerability-scan)
+    - [Task 8: Configure Dynamic Data Masking](./README.md#task-8-configure-dynamic-data-masking)
+    - [Task 9: Verify data how does it look by using App](./README.md#task-9-verify-data-how-does-it-look-by-using-app)
  
 ## Exercise 0: Introduction to Azure Portal
 
