@@ -6,20 +6,44 @@
 Transparent data encryption (TDE) helps protect Azure SQL Database against the threat of malicious offline activity by encrypting data at rest. It performs real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application
 
 1. In the Azure Portal, go to Resource Group with suffix **-SQL**, select the SQL Database **Clinic**.
-2. Select **Transparent data encryption** under the Security blade.
+2. Select **Transparent data encryption** under the **Security** blade.
 3. Here you can review; transparent data encryption is already enabled. 
 
 ![](images/transdataenc.png)
 
-### Task 2: Auditing 
+### Task 2: Always Encrypted
+1. Go to **JumpVM**, then select your database **Clinic** > **Tables** > **dbo.Patients** > **Encrypt Columns**.
 
-1. In SQL Database, under Settings select **Auditing** where you can review that Auditing is enabled and data is being stored in your storage account.
+![](images/alwaysenc.png)
+
+2. You will get a pop-up window, where you will enable encryption. So select **Next**.
+
+![](images/alwaysenc1.png)
+
+3. Check the box for **Birth Date** and for **choose type** select **Randomized*.
+
+![](images/alwaysenc2.png)
+
+4. Select **Next**. On next step, select **Azure Key Vault** and then click on **sign in** button.
+
+![](images/alwaysenc3.png)
+
+5. An authentication window will appear on the screen. Enter you username and password there.
+
+img
+
+6. Next, select the Key Vault provided you in resource group **-SQL** from the dropdown.
+
+
+
+### Task 3: Auditing
+1. In SQL Database, select **Auditing** under **Security** where you can review that Auditing is enabled and data is being stored in your storage account.
 2. Click on **View Audit Logs**, this will show all the database activities happened recently.
 
 ![](images/auditing.png)
 
 
-### Task 3: Threat Protection 
+### Task 4: Threat Protection 
 1. Open Resource Group with suffix **-SQL**, navigate to the SQL Server. Select **Advanced Data Security** under Security.
 2. Use the following configurations:
 * Advanced Data Security: **On**
@@ -28,16 +52,17 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 * Periodic recurring scans: **On**
 * Send scan reports to: **username**
 * Send Alerts to: **username**
-3. Select **Save**.
 
 ![](images/advancedsecurity.png)
 
+3. Select **Save**.
 
-### Task 4: Configure SQL Data Discovery and Classification
+
+### Task 5: Configure SQL Data Discovery and Classification
 
 In this task, you will look at the SQL Data Discovery and Classification feature that introduces a new tool for discovering, classifying, labeling & reporting the sensitive data in your databases. It introduces a set of advanced services, forming a new SQL Information Protection paradigm aimed at protecting the data in your database.
 
-1. Go to SQL Database, On the **Advanced Data Security** blade, select the **Data Discovery & Classification** tile.
+1. Go to SQL Database, on the **Advanced Data Security** blade, select the **Data Discovery & Classification** tile.
 
 ![](images/dataclassification.png)
 
@@ -57,10 +82,7 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 6. When the save completes, select the **Overview** tab on the Data Discovery & Classification blade to view a report with a full summary of the database classification state.
 
 
-**Verify by running SQL Query**
-
-
-### Task 5: Simulate Attack 
+### Task 6: Simulate Attack 
 
 1.	In the Azure Portal, open Resource Group with suffix **-SQL**, navigate to the app service **contosoapp-suffix** and select **Browse**.
 
@@ -104,7 +126,8 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 ![](images/threat3.png)
 
 
-### Task 6: Vulnerability Scan
+
+### Task 7: Vulnerability Scan
 
 The SQL Vulnerability Assessment service is a service that provides visibility into your security state, and includes actionable steps to resolve security issues, and enhance your database security.
 
@@ -120,16 +143,17 @@ The SQL Vulnerability Assessment service is a service that provides visibility i
 1.	Run a Vulnerability Scan and review results. 
 
 
-### Task 7: Configure Dynamic Data Masking: 
+### Task 8: Configure Dynamic Data Masking: 
  
 In this exercise, you will enable Dynamic Data Masking (DDM). DDM limits sensitive data exposure by masking it to non-privileged users. This feature helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.
 
-1. Add a mask by navigating to SQL Database, on the **Advanced Data Security** blade, go to **Dynamic Data Masking** and select **+Add Mask**.
+1. Now navigating to SQL Database **Clinic** to add a mask.
+2. Go to **Dynamic Data Masking** under **Security** blade, then select **+Add Mask**.
 
 ![](images/ddm.png)
 
 
-2. Use following configurations:
+2. Use following configurations to create a mask rule:
 * Schema: **dbo**
 * Table: select **Patients** from dropdown
 * Column: **SSN (char)** from dropdown
@@ -141,11 +165,13 @@ In this exercise, you will enable Dynamic Data Masking (DDM). DDM limits sensiti
 5.  Use following configurations:
 * Table: select **Visits** from dropdown
 * Column: **PatientID (int)** from dropdown
-* Masking field format: **Number (random number range)** [From: 0 – To: 100]
+* Masking field format: **Number (random number range)**
+* Enter random value for **To** and **For**.
 
 ![](images/mask2.png)
 
-6. Select **Add**.
+6. Then select **Add**. 
+Your mask rules are ready.
 
-### Task 8: Verify data how does it look by using App
+### Task 9: Verify data how does it look by using App
 1. Go back to your app service, select **Visits**.
