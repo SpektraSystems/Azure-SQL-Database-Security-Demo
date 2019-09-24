@@ -234,22 +234,22 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 
 9. Now navigate to **Patients**. Then perform an operation by selecting **Details** of any patient where this will be reflected in the audit log in auditing. 
 
-![](images/)
+![](images/patients.png)
 
 10. The actions performed on the webpage will directly get logged into audit logs which can be reviewed. 
 11. In SQL Database **Clinic**, select **Auditing** under **Security** where you can review the audit logs. Select **View Audit Logs**.
 
-![](images/contosowebpage.png) 
+![](images/viewauditlogs.png) 
 
-12. 
+12. You can review the recently happened activites.
 
-auditthreat1
+![](images/auditafterthreat1.png)
 
-13. 
+13. Then expand first activity, which will further you show you details about the operation you performed in previous step (Step 9).
 
-auditthreat2
+![](images/auditafterthreat2.png)
 
-
+This is how one can review all the activites.
 
 ### Task 6: Simulate Attack 
 
