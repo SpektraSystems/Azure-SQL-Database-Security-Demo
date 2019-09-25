@@ -150,7 +150,7 @@ Let us enable Always Encryption for couple of columns in our Clinic Database.
 
 6. Next, select you **Subscription** and then select the Key Vault provided you in resource group **-SQL** from the dropdown.
 
-![](images/sqlsecmasterkey.jpg)
+![](images/sqlsecmasterkey.png)
 
 7. Select **Next**. Then select **Proceed to finish now** and select **next** again.
 
@@ -228,7 +228,7 @@ In this task, We'll try to simulate a SQL Injection attack on our database and s
 
 13. If you scroll down, you should also see some remediation recommendations for the attack
 
-![](images/threat4.jpg)
+![](images/threat4.png)
 
 ### Task 4: Auditing
 Auditing an instance of the SQL Server Database Engine or an individual database involves tracking and logging events. For SQL Server, you can create audits that contain specifications for server-level events and specifications for database-level events. Audited events can be written to the event logs or to audit files. Let us enable Auditing for our SQL Db. 
@@ -348,14 +348,20 @@ Your mask rules are ready. Let us review them using SQL Server Management Studio
 
 7. Launch SQL Server Management Studio and start a new Connection. Enter the Server name from your Azure SQL Database **FQDN** used earlier. Select SQl Authentication and privide user name **demoadmin** and password **Password123**. 
 
-![](images/sqlsecnormaluserlogin.jpg.png)
+![](images/sqlsecnormaluserlogin.png)
 
 8. Run following query against **Clinic** database. You'll see that PatientID column is masted with value **0**.
 
         `Select * from dbo.patients`
 
-![](images/sqlsecnormaluserlogin.jpg.png)
+![](images/sqlsecnormaluserlogin.png)
 
 
+# Additional Refrences
 
-
+* [Azure SQL Database Security Overview](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-security-overview)
+* [Row Level Security](https://docs.microsoft.com/en-us/sql/relational-databases/security/row-level-security)
+* [SQL Database Threat Protection](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection)
+* [Azure SQL Database Feature Restrictions](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-feature-restrictions)
+* [Always Encrypted](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine)
+* [Security Attributes](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-security-controls)
