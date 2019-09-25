@@ -4,26 +4,6 @@
 Security is a top concern for managing databases, and it has always been a priority for Azure SQL Database. Your databases can be tightly secured to help satisfy most regulatory or security requirements. 
 
 In this demo, We'll walkthrough some of the Security features of Azure SQL Databases. 
-
-**Contents**
-  - [Exercise 1: Getting Started](./README.md#exercise-0-introduction-to-azure-portal)
-    - [Task 1: Sign Up for pre configured environment](./README.md#task-1-sign-up-for-pre-configured-environment)
-    - [Task 2: Log into your Azure Portal and Verify access to the Resources](./README.md#task-2-log-into-your-azure-portal-and-verify-access-to-the-subscription)
-  
-
-  - [Exercise 2: Control Access](./README.md#exercise-2-control-access)
-    - [Task 1:Configure Azure AD Login for your Azure SQL DB](./README.md#task-1-configure-azure-ad-login-for-your-azure-sql-db)
-    - [Task 2: Access the Database using SQL Server Management Studio](./README.md#task-2-access-the-database-using-sql-server-management-studio)
-  - [Exercise 3: Protect Data](./README.md#exercise-3-protect-data)
-    - [Task 1: Transparent Data Encryption](./README.md#task-1-transparent-data-encryption)
-    - [Task 2: Always Encrypted](./README.md#task-2-always-encrypted)
-    - [Task 3: Auditing](./README.md#task-3-auditing)
-    - [Task 4: Threat Protection](./README.md#task-4-threat-protection)
-    - [Task 5: Configure SQL Data Discovery and Classification](./README.md#task-5-configure-sql-data-discovery-and-classification)
-    - [Task 6: Simulate Attack](./README.md#task-6-simulate-attack)
-    - [Task 7: Vulnerability Scan](./README.md#task-7-vulnerability-scan)
-    - [Task 8: Configure Dynamic Data Masking](./README.md#task-8-configure-dynamic-data-masking)
-    - [Task 9: Verify data how does it look by using App](./README.md#task-9-verify-data-how-does-it-look-by-using-app)
  
 ## Exercise 1: Getting Started
 
