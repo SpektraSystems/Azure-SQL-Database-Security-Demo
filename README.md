@@ -332,10 +332,7 @@ Your mask rules are ready. Let us review them using SQL Server Management Studio
 
 8. Run following query against **Clinic** database. You'll see that PatientID column is masted with value **0**.
 
-        ```
-        Select * from dbo.patients
-        
-        ```
+        `Select * from dbo.patients`
 
 ![](images/sqlsecnormaluserlogin.jpg.png)
 
