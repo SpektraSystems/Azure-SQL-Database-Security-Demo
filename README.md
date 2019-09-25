@@ -24,7 +24,6 @@ Security is a top concern for managing databases, and it has always been a prior
     - [Task 6: Simulate Attack](./README.md#task-6-simulate-attack)
     - [Task 7: Vulnerability Scan](./README.md#task-7-vulnerability-scan)
     - [Task 8: Configure Dynamic Data Masking](./README.md#task-8-configure-dynamic-data-masking)
-    - [Task 9: Verify data how does it look by using App](./README.md#task-9-verify-data-how-does-it-look-by-using-app)
  
 ## Exercise 0: Introduction to Azure Portal
 
@@ -354,6 +353,3 @@ In this exercise, you will enable Dynamic Data Masking (DDM). DDM limits sensiti
 6. Then select **Add**. 
 Your mask rules are ready.
 
-### Task 9: Verify data how does it look by using App
-1. Go back to your app service, select **Visits**.
-**Verify data how does it look by logging in as non-admin user in SQL MGMT Studio**
