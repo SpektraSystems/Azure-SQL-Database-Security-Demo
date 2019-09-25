@@ -134,18 +134,7 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 
 ![](images/transdataenc.png)
 
-
-### Task 2: Auditing
-1. In SQL Database, select **Auditing** under **Security** where you can review that Auditing is enabled and audit data is being stored in your storage account.
-
-![](images/auditing.png)
-
-2. Click on **View Audit Logs**, this will show all the database activities happened recently. You can click on the audit log to review details of any activity. 
-
-![](images/viewaudit.png)
-
-
-### Task 3: Enable Advanced Data Security for Azure SQL Database
+### Task 2: Enable Advanced Data Security for Azure SQL Database
 1. Open Resource Group with suffix **-SQL**, navigate to the SQL Server. Select **Advanced Data Security** under Security.
 2. Use the following configurations:
 * Advanced Data Security: **On**
@@ -159,7 +148,7 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 
 3. Select **Save**.
 
-### Task 4: Simulate Attack 
+### Task 3: Simulate Attack 
 
 1.	In the Azure Portal, open Resource Group with suffix **-SQL**, navigate to the app service **contosoapp-suffix** and select **Browse**.
 
@@ -202,6 +191,14 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 
 ![](images/threat3.png)
 
+### Task 4: Auditing
+1. In SQL Database, select **Auditing** under **Security** where you can review that Auditing is enabled and audit data is being stored in your storage account.
+
+![](images/auditing.png)
+
+2. Click on **View Audit Logs**, this will show all the database activities happened recently. You can click on the audit log to review details of any activity. 
+
+![](images/viewaudit.png)
 
 
 ### Task 5: Configure SQL Data Discovery and Classification
