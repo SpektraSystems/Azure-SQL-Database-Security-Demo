@@ -30,7 +30,7 @@ In this demo, We'll walkthrough some of the Security features of Azure SQL Datab
 This exercise will help you getting access to demo environment and getting started with demo lab environment. 
 
    * [Task 1: Sign Up for Pre-configured Environment](#exercise-01-sign-up-for-pre-configured-environment)
-   * [Task 2: Log into your Azure Portal and Verify access to the Subscription](#exercise-02-log-into-your-azure-portal-and-verify-access-to-the-subscription)
+   * [Task 2: Log into your Azure Portal and Verify access to the Lab Environment](#exercise-02-log-into-your-azure-portal-and-verify-access-to-the-lab)
  
 
 ### Task 1: Sign Up for pre configured environment
@@ -50,7 +50,7 @@ This exercise will help you getting access to demo environment and getting start
 4. Please ensure to use provided Azure Credentials during the course of Lab. 
 
 
-### Task 2: Log into your Azure Portal and Verify access to the Subscription
+### Task 2: Log into your Azure Portal and Verify access to the Lab
 
 In this exercise, you will log into the **Azure Portal** using your Azure credentials. We'll be using the Jump Virtual machine provided for completing this demo. 
 
@@ -82,13 +82,18 @@ In this exercise, you will log into the **Azure Portal** using your Azure creden
 
 ### Task 1: Configure Azure AD Login for your Azure SQL DB
 
+Azure AD authentication is a mechanism of connecting to Azure SQL Database and SQL Data Warehouse by using identities in Azure AD. With Azure AD authentication, you can manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management. Let us enable Azure AD based authentication for your Azure SQL database.
+
+
 1. Login into the Azure Portal, open **Resource Group** with suffix **-SQL**, navigate to the SQL Server **contososerv-suffix**.
-1. Under the **Settings** blade, select **Active Directory Admin**. Here you can review your username registered as Active Directory Admin. Using this you can login to SQL Server using your AAD Credentials itself. 
+1. Under the **Settings** blade, select **Active Directory Admin**. Here you can review your username registered as Active Directory Admin. Using this you can login to SQL Server using your AAD Credentials itself.  
 
 ![](images/activediradmin.png)
 
 
 ### Task 2: Access the Database using SQL Server Management Studio
+
+In this task, We'll try accessing our **Clinic** database using SQl Server Management Studio with Azure AD Authentication
 
 2. On start menu, search SQL and select **Microsoft SQL Server Management Studio 18**.
 3. Use the following configurations then click Connect:
@@ -104,11 +109,15 @@ In this exercise, you will log into the **Azure Portal** using your Azure creden
 ![](images/sqlauthentiction.png)
 
 
-4.	You will get a login failure which will state: ***Your client IP address does not have access to the server. Sign in to an Azure Account and create a new firewall rule to enable access.***
+4.	You will get a login failure which will state: ***Your client IP address does not have access to the server. Sign in to an Azure Account and create a new firewall rule to enable access.*** We need to add firewall rule to allow access to Azure SQL Database from our machine. 
 
 ![](images/firewallerror.png)
 
-5. Then go back to your SQL Server **contososerv-suffix**.
+### Task 3: Configure Azure SQL Database Firewall
+To provide access security, SQL Database controls access with Firewall rules that limit connectivity by IP address. You can choose to allow specific IPs for database access and also enable other Azure Services by just enabling Azure Service Access. Let us create firewall rules to enable access to the database. 
+
+1. In Azure Portal, browse to your SQL Server **contososerv-suffix**.
+
 6. Select **Firewall and virtual networks**. Then select **ON** for **Allow Access to Azure Services** to enable firwall, then add fiirwall IP that ranges between the **Client IP address** you see in you sql server. 
 
 ![](images/firewalladip.png)
@@ -117,12 +126,13 @@ In this exercise, you will log into the **Azure Portal** using your Azure creden
 
 ![](images/firewallsave.png)
 
-8. Now go back to **JumpVM** and try logging again using SQL Management Studio , you should be able to login succesfully. Also you can review you SQL Database **Clinic** by expanding **Database** 
+8. Now you can try logging in using SQl Server Management Studio and it should work as expected. Also you can review you SQL Database **Clinic** by expanding **Database** 
 
 ![](images/successfullogin.png)
 
 ## Exercise 3: Protect Data 
 
+SQL Database secures customer data by providing auditing and threat detection capabilities.
 
 ### Task 1: Transparent Data Encryption 
 
@@ -135,11 +145,15 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 ![](images/transdataenc.png)
 
 ### Task 2: Enable Advanced Data Security for Azure SQL Database
+Advanced data security is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, surfacing and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database. It provides a single go-to location for enabling and managing these capabilities.
+
+Let us enable Azure Advanced Data Security for our Clinic Database Server. 
+
 1. Open Resource Group with suffix **-SQL**, navigate to the SQL Server. Select **Advanced Data Security** under Security.
 2. Use the following configurations:
 * Advanced Data Security: **On**
 * Subscription: **Choose your subscription**
-* Storage Account: **Choose your storage account**
+* Storage Account: **Choose your existing storage account**
 * Periodic recurring scans: **On**
 * Send scan reports to: **username**
 * Send Alerts to: **username**
@@ -149,6 +163,7 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 3. Select **Save**.
 
 ### Task 3: Simulate Attack 
+In this task, We'll try to simulate a SQL Injection attack on our database and see how Azure Advanced Data Security reacts to it. 
 
 1.	In the Azure Portal, open Resource Group with suffix **-SQL**, navigate to the app service **contosoapp-suffix** and select **Browse**.
 
@@ -158,14 +173,14 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 
 ![](images/contosowebpage.png)
 
-3.	In the **Search Box**, put the following code and  click on **Search**.
-**' UNION SELECT '0', '1', '2', STUFF((select name from sys.tables FOR XML PATH('')),1,1,''), '4', '5', '6', '7', '8', '2010-10-10' --**
+3.	In the **Search Box**, put the following code and  click on **Search**. `' UNION SELECT '0', '1', '2', STUFF((select name from sys.tables FOR XML PATH('')),1,1,''), '4', '5', '6', '7', '8', '2010-10-10' --`
 
 ![](images/searchbox.png)
 
-4. This will create an SQL Injection in the database.
+4. This will perform a SQL Injection in the database. Azure SQL Security shoult detect ant notify you about the threat on the email address you provided in last step. 
 
-5. You will receive an alert email regarding the threat, to review that navigate to https://portal.office.com.
+5. Let us check if you recevied an email about it. You can open  https://portal.office.com in another tab in your browser. Login with same Azure Credentials you used to login to azure portal.
+
 6. Select **Outlook**.
 
 ![](images/outlook.png)
@@ -174,12 +189,12 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 
 ![](images/mailerror.png)
 
-8.	Also, the threat can be reviewd from **Azure Portal**. To check through the portal, go to SQL Database **Clinic**.
-9. Then go to **Advanced Data Security** under Security blade, select **Advanced Threat Protection**. Here you can review the threat.
+8.	Also, you can review threat alerts in **Azure Portal**. To check through the portal, go to SQL Database **Clinic**.
+9. Open **Advanced Data Security** under Security blade, select **Advanced Threat Protection**. Here you can review the threat alert.
 
 ![](images/advthreatpro.png)
  
-10. By selecting **Advanced Threat Protection**, you can review the threat as shown below in the image. Select the **Potential SQL Injcetion**.
+10. Select the **Potential SQL Injcetion**.
 
 ![](images/threat1.png)
 
@@ -187,35 +202,40 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 
 ![](images/threat2.png)
 
-12. In this section you will get the information about threat.
+12. In this section you can review additional details about the threat. 
 
 ![](images/threat3.png)
 
+13. If you scroll down, you should also see some remediation recommendations for the attack
+
+![](images/threat4.jpg)
+
 ### Task 4: Auditing
+Auditing an instance of the SQL Server Database Engine or an individual database involves tracking and logging events. For SQL Server, you can create audits that contain specifications for server-level events and specifications for database-level events. Audited events can be written to the event logs or to audit files. Let us enable Auditing for our SQL Db. 
+
 1. In SQL Database, select **Auditing** under **Security** where you can review that Auditing is enabled and audit data is being stored in your storage account.
 
 ![](images/auditing.png)
 
-2. Click on **View Audit Logs**, this will show all the database activities happened recently. You can click on the audit log to review details of any activity. 
+2. Click on **View Audit Logs**, this will show all the database activities happened recently. You can click on the audit log to review  additional details of any activity. 
 
 ![](images/viewaudit.png)
 
 
 ### Task 5: Configure SQL Data Discovery and Classification
 
-In this task, you will look at the SQL Data Discovery and Classification feature that introduces a new tool for discovering, classifying, labeling & reporting the sensitive data in your databases. It introduces a set of advanced services, forming a new SQL Information Protection paradigm aimed at protecting the data in your database.
+In this task, you will look at the SQL Data Discovery and Classification feature that introduces a new tool for discovering, classifying, labeling & reporting the sensitive data in your databases. It introduces a set of advanced services, forming a new SQL Information Protection paradigm aimed at protecting the data in your database. Let's get started.
 
-1. Go to SQL Database, on the **Advanced Data Security** blade, select the **Data Discovery & Classification** tile.
+1. in Azure Portal, open your SQL Database and click on the **Advanced Data Security** blade, select the **Data Discovery & Classification** tile.
 
 ![](images/dataclassification.png)
-
 
 2. In the Data Discovery & Classification blade, select the info link with the message **We have found 16 columns with classification recommendations**.
 
 ![](images/16columns.png)
 
-
 3. Look over the list of recommendations to get a better understanding of the types of data and classifications that can be assigned, based on the built-in classification settings.
+
 4. Check the **Select all** check box at the top of the list to select all the remaining recommended classifications, and then select **Accept selected recommendations**.
 
 ![](images/acceptrecom.png)
@@ -224,29 +244,32 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 5. Select **Save**.
 6. When the save completes, select the **Overview** tab on the Data Discovery & Classification blade to view a report with a full summary of the database classification state.
 
-7. To check how this works in respect to the app service, will go to the app service **contosoapp-suffix**.
+7. Data classifications is now enabled and will be available in audit logs as well, Let us perform some data access operations using the sample app to review the audit logs with data classifications.
+
+8. In Azure Portal, browse to the app service named **contosoapp-suffix**.
+
 8. Select **Browse**, this will open **Contoso Clinic** webpage.
 
 ![](images/contosowebpage.png)
 
-9. Now navigate to **Patients**. Then perform an operation by selecting **Details** of any patient where this will be reflected in the audit log in auditing. 
+9. Now navigate to **Patients**. Then perform an operation by selecting **Details** of any patient . 
 
 ![](images/patients.png)
 
 10. The actions performed on the webpage will directly get logged into audit logs which can be reviewed. 
+
 11. In SQL Database **Clinic**, select **Auditing** under **Security** where you can review the audit logs. Select **View Audit Logs**.
 
 ![](images/viewauditlogs.png) 
 
-12. You can review the recently happened activites.
+12. You can review the recently activities. 
 
 ![](images/auditafterthreat1.png)
 
-13. Then expand first activity, which will further show you details about the operation you performed in previous step (Step 9). It will refer to what kind of information is accessed.
+13. Click on the first activity, which will further show you details about the operation you performed in previous step (Step 9). It will show classification of the data accessed in last transaction. 
 
 ![](images/auditafterthreat2.png)
 
-This is how one can review all the activites, that which application has access the confidential information.
 
 
 
@@ -272,33 +295,8 @@ In this task, you will review an assessment report generated by ADS for the `Cli
 
 5. Select the **VA1219** finding to view the detailed description.
 
-### Task 7: Always Encrypted
-1. Go to **JumpVM**, then select your database **Clinic** > **Tables** > **dbo.Patients** > **Encrypt Columns**.
 
-![](images/alwaysenc.png)
-
-2. You will get a pop-up window, where you will enable encryption. So select **Next**.
-
-![](images/alwaysenc1.png)
-
-3. Check the box for **Birth Date** and for **choose type** select **Randomized**.
-
-![](images/alwaysenc2.png)
-
-4. Select **Next**. On next step, select **Azure Key Vault** and then click on **sign in** button.
-
-![](images/alwaysenc3.png)
-
-5. An authentication window will appear on the screen. Enter you username and password there.
-
-img
-
-6. Next, select the Key Vault provided you in resource group **-SQL** from the dropdown.
-
-
-
-
-### Task 8: Configure Dynamic Data Masking: 
+### Task 7: Configure Dynamic Data Masking: 
  
 In this exercise, you will enable Dynamic Data Masking (DDM). DDM limits sensitive data exposure by masking it to non-privileged users. This feature helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.
 
@@ -326,8 +324,21 @@ In this exercise, you will enable Dynamic Data Masking (DDM). DDM limits sensiti
 ![](images/mask2.png)
 
 6. Then select **Add**. 
-Your mask rules are ready.
+Your mask rules are ready. Let us review them using SQL Server Management Studio by logging in as a non-admin user. 
 
-### Task 9: Verify data how does it look by using App
-1. Go back to your app service, select **Visits**.
-**Verify data how does it look by logging in as non-admin user in SQL MGMT Studio**
+7. Launch SQL Server Management Studio and start a new Connection. Enter the Server name from your Azure SQL Database **FQDN** used earlier. Select SQl Authentication and privide user name **demoadmin** and password **Password123**. 
+
+![](images/sqlsecnormaluserlogin.jpg.png)
+
+8. Run following query against **Clinic** database. You'll see that PatientID column is masted with value **0**.
+
+        ```
+        Select * from dbo.patients
+        
+        ```
+
+![](images/sqlsecnormaluserlogin.jpg.png)
+
+
+
+
