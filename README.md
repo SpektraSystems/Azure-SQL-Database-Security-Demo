@@ -193,7 +193,8 @@ In this task, We'll try to simulate a SQL Injection attack on our database and s
 
 ![](images/contosowebpage.png)
 
-3.	In the **Search Box**, put the following code and  click on **Search**. `' UNION SELECT '0', '1', '2', STUFF((select name from sys.tables FOR XML PATH('')),1,1,''), '4', '5', '6', '7', '8', '2010-10-10' --`
+3.	In the **Search Box**, put the following code and  click on **Search**. 
+    ' UNION SELECT '0', '1', '2', STUFF((select name from sys.tables FOR XML PATH('')),1,1,''), '4', '5', '6', '7', '8', '2010-10-10' --
 
 ![](images/searchbox.png)
 
@@ -352,9 +353,9 @@ Your mask rules are ready. Let us review them using SQL Server Management Studio
 
 8. Run following query against **Clinic** database. You'll see that PatientID column is masted with value **0**.
 
-        `Select * from dbo.patients`
+        Select * from dbo.patients
 
-![](images/sqlsecnormaluserlogin.png)
+![](images/sqlsecddm.png)
 
 
 # Additional Refrences
