@@ -3,14 +3,15 @@
 ## Overview
 Security is a top concern for managing databases, and it has always been a priority for Azure SQL Database. Your databases can be tightly secured to help satisfy most regulatory or security requirements. 
 
-In this demo, We'll walkthrough some of the Security features of Azure SQL Databases. 
+
 
 **Contents**
-  - [Exercise 1: Getting Started](./README.md#exercise-0-introduction-to-azure-portal)
+  - [Exercise 0: Introduction to Azure Portal](./README.md#exercise-0-introduction-to-azure-portal)
     - [Task 1: Sign Up for pre configured environment](./README.md#task-1-sign-up-for-pre-configured-environment)
-    - [Task 2: Log into your Azure Portal and Verify access to the Resources](./README.md#task-2-log-into-your-azure-portal-and-verify-access-to-the-subscription)
+    - [Task 2: Log into your Azure Portal and Verify access to the Subscription](./README.md#task-2-log-into-your-azure-portal-and-verify-access-to-the-subscription)
   
-
+  - [Exercise 1: Getting Started](./README.md#exercise-1-perform-database-assessments)
+    - [Task 1: Review Azure SQL Database](./README.md#task-1-review-azure-sql-database)
   - [Exercise 2: Control Access](./README.md#exercise-2-control-access)
     - [Task 1:Configure Azure AD Login for your Azure SQL DB](./README.md#task-1-configure-azure-ad-login-for-your-azure-sql-db)
     - [Task 2: Access the Database using SQL Server Management Studio](./README.md#task-2-access-the-database-using-sql-server-management-studio)
@@ -23,11 +24,10 @@ In this demo, We'll walkthrough some of the Security features of Azure SQL Datab
     - [Task 6: Simulate Attack](./README.md#task-6-simulate-attack)
     - [Task 7: Vulnerability Scan](./README.md#task-7-vulnerability-scan)
     - [Task 8: Configure Dynamic Data Masking](./README.md#task-8-configure-dynamic-data-masking)
-    - [Task 9: Verify data how does it look by using App](./README.md#task-9-verify-data-how-does-it-look-by-using-app)
  
-## Exercise 1: Getting Started
+## Exercise 0: Introduction to Azure Portal
 
-This exercise will help you getting access to demo environment and getting started with demo lab environment. 
+This exercise will take you through Azure login and portal experience and the pre-requisite environment.
 
    * [Task 1: Sign Up for Pre-configured Environment](#exercise-01-sign-up-for-pre-configured-environment)
    * [Task 2: Log into your Azure Portal and Verify access to the Subscription](#exercise-02-log-into-your-azure-portal-and-verify-access-to-the-subscription)
@@ -47,50 +47,65 @@ This exercise will help you getting access to demo environment and getting start
 
 ![](images/labdetailpg.png)
 
-4. Please ensure to use provided Azure Credentials during the course of Lab. 
+Please ensure to take the values assigned to your deployment.
 
 
 ### Task 2: Log into your Azure Portal and Verify access to the Subscription
 
-In this exercise, you will log into the **Azure Portal** using your Azure credentials. We'll be using the Jump Virtual machine provided for completing this demo. 
+In this exercise, you will log into the **Azure Portal** using your Azure credentials.
 
-1. Login to **JumpVM** by clicking on **GO TO JumpVM** button on lab details page. 
-
-![](images/gotojumpvm.png)
-
-2.  Open Edge Browser by launching it from the desktop and Navigate to https://portal.azure.com.
-3.  Enter the **Username** which was displayed in the previous window and click on **Next**.<br/>
+1.  Navigate to https://portal.azure.com.
+2.  Enter the **Username** which was displayed in the previous window and click on **Next**.<br/>
 
 ![](images/1signin.png)
 
-4. Enter the **Password** and click on **Sign in**.<br/>
+3. Enter the **Password** and click on **Sign in**.<br/>
 
 ![](images/2signin.png)
 
-5.	In the Welcome to **Microsoft Azure** pop-up window, click **Maybe Later**. Now you have login successfully.
+4.	In the Welcome to **Microsoft Azure** pop-up window, click **Maybe Later**. Now you have login successfully.
 
 ![](images/maybelater1.png)
 
-6. You will see one Resource Group on which you have access. 
-6. Click on **ODL-sql-security-xxxxx-SQL** Resource Group which contains the pre-deployed Azure SQL Database as shown below. Your demo environment includes a pre-created Azure SQL Database named "Clinic", loaded witha  sample data. It also includes a sample application to use through the demo hosted in an Azure App Service. 
-
+5. You will see two Resource Groups on which you have access. 
+6. Click on **ODL-sql-security-xxxxx-SQL** Resource Group which contains the pre-deployed Azure SQL Database as shown below:
 
 ![](images/overview1.png)
 
+7. Click on **ODL-sql-security-xxxxx-JumpVM** Resource Group which contains the pre-deployed on-premises infrastructure.
 
-## Exercise 1: Control Access
+![](images/overview2.png)
+
+
+## Exercise 1: Perform database assessments
+
+### Task 1: Review Azure SQL Database
+
+1. In the Azure Portal, navigate to the Resource Groups. There are two resource groups, select the resource group with suffix **-SQL**.
+
+![](images/rgs.png)
+
+2. Locate a resource named **Clinic**. This is your **Azure SQL Database**.
+
+![](images/clinicsqldatabase.png)
+
+## Exercise 2: Control Access
 
 ### Task 1: Configure Azure AD Login for your Azure SQL DB
 
 1. Login into the Azure Portal, open **Resource Group** with suffix **-SQL**, navigate to the SQL Server **contososerv-suffix**.
-1. Under the **Settings** blade, select **Active Directory Admin**. Here you can review your username registered as Active Directory Admin. Using this you can login to SQL Server using your AAD Credentials itself. 
+1. Under the **Settings** blade, select **Active Directory Admin**. Here you can review your username registered as Active Directory Admin.
 
 ![](images/activediradmin.png)
 
 
 ### Task 2: Access the Database using SQL Server Management Studio
 
-2. On start menu, search SQL and select **Microsoft SQL Server Management Studio 18**.
+1. Now, login to **JumpVM** by clicking on **GO TO JumpVM** button on lab details page. 
+
+![](images/gotojumpvm.png)
+
+2. On start bar, search SQL and select **Microsoft SQL Server Management Studio 18**.
 3. Use the following configurations then click Connect:
 * Server name: enter the server name which you can copy from the overview page of SQL Server at the top right corner.
 
@@ -99,7 +114,7 @@ In this exercise, you will log into the **Azure Portal** using your Azure creden
 
 * authentication method: from dropdown select **Active Directory-Password**
 * username: **odl_user_xxxxx@xxxxxxxxxxx.xxxxxxxxxxx.com**
-* password: **youruniquepassword**
+* password: **arno32QCO*R1**
 
 ![](images/sqlauthentiction.png)
 
@@ -117,7 +132,7 @@ In this exercise, you will log into the **Azure Portal** using your Azure creden
 
 ![](images/firewallsave.png)
 
-8. Now go back to **JumpVM** and try logging again using SQL Management Studio , you should be able to login succesfully. Also you can review you SQL Database **Clinic** by expanding **Database** 
+8. Now go back to **JumpVM** and login again, you will get login succesfully. Also you can review you SQL Database **Clinic** by expanding **Database** 
 
 ![](images/successfullogin.png)
 
@@ -151,25 +166,36 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 
 ![](images/alwaysenc3.png)
 
-5. An authentication window will appear on the screen. Enter you username and password there.
+5. An authentication window will appear on the screen. Enter you username and password.
 
-img
+![](images/kvsignin1.png)
 
-6. Next, select the Key Vault provided you in resource group **-SQL** from the dropdown.
+6. Next, select you **Subscription** and then select the Key Vault provided you in resource group **-SQL** from the dropdown.
 
+![](images/kvsignin2.png)
+
+7. Select **Next**. Then select **Proceed to finish now** and select **next** again.
+
+![](images/kvsignin3.png)
+
+8. Review the choices made and then select **Finish**.
+
+![](images/kvsignin4.png)
+
+9. You will see the process being completed.
 
 
 ### Task 3: Auditing
-1. In SQL Database, select **Auditing** under **Security** where you can review that Auditing is enabled and audit data is being stored in your storage account.
+1. In SQL Database, select **Auditing** under **Security** where you can review that Auditing is enabled and data is being stored in your storage account.
 
 ![](images/auditing.png)
 
-2. Click on **View Audit Logs**, this will show all the database activities happened recently. You can click on the audit log to review details of any activity. 
+2. Click on **View Audit Logs**, this will show all the database activities happened recently.
 
 ![](images/viewaudit.png)
 
 
-### Task 4: Enable Advanced Data Security for Azure SQL Database
+### Task 4: Threat Protection 
 1. Open Resource Group with suffix **-SQL**, navigate to the SQL Server. Select **Advanced Data Security** under Security.
 2. Use the following configurations:
 * Advanced Data Security: **On**
@@ -183,52 +209,8 @@ img
 
 3. Select **Save**.
 
-### Task 5: Simulate Attack 
 
-1.	In the Azure Portal, open Resource Group with suffix **-SQL**, navigate to the app service **contosoapp-suffix** and select **Browse**.
-
-![](images/appservice.png)
-
-2.	You will be directed to **Contoso Clinic** webpage, select **Patients**, 
-
-![](images/contosowebpage.png)
-
-3.	In the **Search Box**, put the following code and  click on **Search**.
-**' UNION SELECT '0', '1', '2', STUFF((select name from sys.tables FOR XML PATH('')),1,1,''), '4', '5', '6', '7', '8', '2010-10-10' --**
-
-![](images/searchbox.png)
-
-4. This will create an SQL Injection in the database.
-
-5. You will receive an alert email regarding the threat, to review that navigate to https://portal.office.com.
-6. Select **Outlook**.
-
-![](images/outlook.png)
-
-7. Then review the email which shows details about the threat.
-
-![](images/mailerror.png)
-
-8.	Also, the threat can be reviewd from **Azure Portal**. To check through the portal, go to SQL Database **Clinic**.
-9. Then go to **Advanced Data Security** under Security blade, select **Advanced Threat Protection**. Here you can review the threat.
-
-![](images/advthreatpro.png)
- 
-10. By selecting **Advanced Threat Protection**, you can review the threat as shown below in the image. Select the **Potential SQL Injcetion**.
-
-![](images/threat1.png)
-
-11. Here is the database in which threat is found. Select the sql database **Clinic**.
-
-![](images/threat2.png)
-
-12. In this section you will get the information about threat.
-
-![](images/threat3.png)
-
-
-
-### Task 6: Configure SQL Data Discovery and Classification
+### Task 5: Configure SQL Data Discovery and Classification
 
 In this task, you will look at the SQL Data Discovery and Classification feature that introduces a new tool for discovering, classifying, labeling & reporting the sensitive data in your databases. It introduces a set of advanced services, forming a new SQL Information Protection paradigm aimed at protecting the data in your database.
 
@@ -275,11 +257,53 @@ In this task, you will look at the SQL Data Discovery and Classification feature
 
 This is how one can review all the activites, that which application has access the confidential information.
 
+### Task 6: Simulate Attack 
+
+1.	In the Azure Portal, open Resource Group with suffix **-SQL**, navigate to the app service **contosoapp-suffix** and select **Browse**.
+
+![](images/appservice.png)
+
+2.	You will be directed to **Contoso Clinic** webpage, select **Patients**, 
+
+![](images/contosowebpage.png)
+
+3.	In the **Search Box**, put the following code and  click on **Search**.
+**' UNION SELECT '0', '1', '2', STUFF((select name from sys.tables FOR XML PATH('')),1,1,''), '4', '5', '6', '7', '8', '2010-10-10' --**
+
+![](images/searchbox.png)
+
+4. This will create an SQL Injection in the database.
+
+5. You will receive an alert email regarding the threat, to review that navigate to https://portal.office.com.
+6. Select **Outlook**.
+
+![](images/outlook.png)
+
+7. Then review the email which shows details about the threat.
+
+![](images/mailerror.png)
+
+8.	Also, the threat can be reviewd from **Azure Portal**. To check through the portal, go to SQL Database **Clinic**.
+9. Then go to **Advanced Data Security** under Security blade, select **Advanced Threat Protection**. Here you can review the threat.
+
+![](images/advthreatpro.png)
+ 
+10. By selecting **Advanced Threat Protection**, you can review the threat as shown below in the image. Select the **Potential SQL Injcetion**.
+
+![](images/threat1.png)
+
+11. Here is the database in which threat is found. Select the sql database **Clinic**.
+
+![](images/threat2.png)
+
+12. In this section you will get the information about threat.
+
+![](images/threat3.png)
 
 
 ### Task 7: Vulnerability Scan
 
-In this task, you will review an assessment report generated by ADS for the `Clicnic` database and take action to remediate one of the findings in the `TailspinToys` database. The [SQL Vulnerability Assessment service](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) is a service that provides visibility into your security state, and includes actionable steps to resolve security issues, and enhance your database security. 
+In this task, you will review an assessment report generated by ADS for the `TailspinToys` database and take action to remediate one of the findings in the `TailspinToys` database. The [SQL Vulnerability Assessment service](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) is a service that provides visibility into your security state, and includes actionable steps to resolve security issues, and enhance your database security. 
 
 1. Return to the **Advanced Data Security** blade for the **Clinic** database and then select the **Vulnerability Assessment** tile.
 
@@ -290,16 +314,13 @@ In this task, you will review an assessment report generated by ADS for the `Cli
 ![](images/vulnerabilityscan.png)
 
 3. When the scan completes, you will see a dashboard, displaying the number of failing checks, passing checks, and a breakdown of the risk summary by severity level.
+4. In the scan results, take a few minutes to browse both the Failed and Passed checks, and review the types of checks that are performed. In the **Failed** the list, locate the security check for **Transparent data encryption**. This check has an ID of **VA1143**.
 
- ![](images/sql-mi-vulnerability-assessment-dashboard.png)
+ ![](images/vulnerability.png)
 
-4. In the scan results, take a few minutes to browse both the Failed and Passed checks, and review the types of checks that are performed. In the **Failed** the list, locate the security check for **Transparent data encryption**. This check has an ID of **VA1219**.
+5. Select the **VA1143** finding to view the detailed description.
 
-
-
-5. Select the **VA1219** finding to view the detailed description.
-
-
+ ![](images/vulnerability1.png)
 
 
 ### Task 8: Configure Dynamic Data Masking: 
@@ -331,7 +352,3 @@ In this exercise, you will enable Dynamic Data Masking (DDM). DDM limits sensiti
 
 6. Then select **Add**. 
 Your mask rules are ready.
-
-### Task 9: Verify data how does it look by using App
-1. Go back to your app service, select **Visits**.
-**Verify data how does it look by logging in as non-admin user in SQL MGMT Studio**
