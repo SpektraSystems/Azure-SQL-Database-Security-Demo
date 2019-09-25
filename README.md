@@ -124,6 +124,46 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 
 ![](images/transdataenc.png)
 
+
+### Task 2: Always Encryption
+Always Encrypted is a feature designed to protect sensitive data, such as credit card numbers or national identification numbers (for example, U.S. social security numbers), stored in Azure SQL Database or SQL Server databases. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the Database Engine ( SQL Database or SQL Server). As a result, Always Encrypted provides a separation between those who own the data (and can view it) and those who manage the data (but should have no access). By ensuring on-premises database administrators, cloud database operators, or other high-privileged, but unauthorized users, cannot access the encrypted data, Always Encrypted enables customers to confidently store sensitive data outside of their direct control. This allows organizations to encrypt data at rest and in use for storage in Azure, to enable delegation of on-premises database administration to third parties, or to reduce security clearance requirements for their own DBA staff.
+
+Let us enable Always Encryption for couple of columns in our Clinic Database. 
+
+1. In SQL Server Management Studio, select your database **Clinic** > **Tables** > **dbo.Patients** > **Encrypt Columns**.
+
+![](images/alwaysenc.png)
+
+2. You will get a pop-up window, where you will enable encryption. So select **Next**.
+
+![](images/alwaysenc1.png)
+
+3. Check the box for **Birth Date** and for **choose type** select **Randomized**.
+
+![](images/alwaysenc2.png)
+
+4. Select **Next**. On next step, select **Azure Key Vault** and then click on **sign in** button.
+
+![](images/alwaysenc3.png)
+
+5. An authentication window will appear on the screen. Enter you azure username and password.
+
+6. Next, select you **Subscription** and then select the Key Vault provided you in resource group **-SQL** from the dropdown.
+
+![](images/sqlsecmasterkey.jpg)
+
+7. Select **Next**. Then select **Proceed to finish now** and select **next** again.
+
+![](images/sqlsecalwaysencryptedrun.png)
+
+8. Review the choices made and then select **Finish**.
+
+![](images/sqlsecalwaysencryptedsummary.png)
+
+9. You will see the always encryption is now comppleted. 
+
+![](images/sqlalwaysencryptfinal.png)
+
 ### Task 2: Enable Advanced Data Security for Azure SQL Database
 Advanced data security is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, surfacing and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database. It provides a single go-to location for enabling and managing these capabilities.
 
