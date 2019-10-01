@@ -347,11 +347,11 @@ Your mask rules are ready. Let us review them using SQL Server Management Studio
 
 ![](images/sqlsecnormaluserlogin.png)
 
-8. Run following query against **Clinic** database. You'll see that PatientID column is having random values. If you run query again, you'll see values getting randomized.
+8. Run following query against **Clinic** database. You'll see that **SSN** values are now masked.
 
         Select * from dbo.patients
 
-![](images/sqlsecddm.png)
+![](images/ddmlive.png)
 
 
 # Additional Refrences
