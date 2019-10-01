@@ -38,7 +38,10 @@ In this exercise, you will log into the **Azure Portal** using your Azure creden
 
 ![](images/gotojumpvm.png)
 
-2.  Open Edge Browser by launching it from the desktop and Navigate to https://portal.azure.com.
+2.  Open Azure Portal by launching shortcut from the desktop.
+
+![](images/azureportallink.png)
+
 3.  Enter the **Username** which was displayed in the previous window and click on **Next**.<br/>
 
 ![](images/1signin.png)
@@ -52,7 +55,7 @@ In this exercise, you will log into the **Azure Portal** using your Azure creden
 ![](images/maybelater1.png)
 
 6. You will see one Resource Group on which you have access. 
-6. Click on **ODL-sql-security-xxxxx-SQL** Resource Group which contains the pre-deployed Azure SQL Database as shown below. Your demo environment includes a pre-created Azure SQL Database named "Clinic", loaded witha  sample data. It also includes a sample application to use through the demo hosted in an Azure App Service. 
+6. Click on **SQL-XXXXX** Resource Group which contains the pre-deployed Azure SQL Database as shown below. Your demo environment includes a pre-created Azure SQL Database named "Clinic", loaded witha  sample data. It also includes a sample application to use through the demo hosted in an Azure App Service. 
 
 
 ![](images/overview1.png)
@@ -65,7 +68,7 @@ In this exercise, you will log into the **Azure Portal** using your Azure creden
 Azure AD authentication is a mechanism of connecting to Azure SQL Database and SQL Data Warehouse by using identities in Azure AD. With Azure AD authentication, you can manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management. Let us enable Azure AD based authentication for your Azure SQL database.
 
 
-1. Login into the Azure Portal, open **Resource Group** with suffix **-SQL**, navigate to the SQL Server **contososerv-suffix**.
+1. Login into the Azure Portal, open **Resource Group** with prefix **SQL-XXXXX**, navigate to the SQL Server **contososerv-suffix**.
 1. Under the **Settings** blade, select **Active Directory Admin**. Here you can review your username registered as Active Directory Admin. Using this you can login to SQL Server using your AAD Credentials itself.  
 
 ![](images/activediradmin.png)
@@ -75,7 +78,7 @@ Azure AD authentication is a mechanism of connecting to Azure SQL Database and S
 
 In this task, We'll try accessing our **Clinic** database using SQl Server Management Studio with Azure AD Authentication
 
-2. On start menu, search SQL and select **Microsoft SQL Server Management Studio 18**.
+2. Launch **Microsoft SQL Server Management Studio 18** from the desktop.
 3. Use the following configurations then click Connect:
 * Server name: enter the server name which you can copy from the overview page of SQL Server at the top right corner.
 
@@ -106,7 +109,7 @@ To provide access security, SQL Database controls access with Firewall rules tha
 
 ![](images/firewallsave.png)
 
-8. Now you can try logging in using SQl Server Management Studio and it should work as expected. Also you can review you SQL Database **Clinic** by expanding **Database** 
+8. Now you can try logging in using SQL Server Management Studio and it should work as expected. Also you can review you SQL Database **Clinic** by expanding **Database** 
 
 ![](images/successfullogin.png)
 
@@ -128,54 +131,40 @@ Transparent data encryption (TDE) helps protect Azure SQL Database against the t
 ### Task 2: Always Encryption
 Always Encrypted is a feature designed to protect sensitive data, such as credit card numbers or national identification numbers (for example, U.S. social security numbers), stored in Azure SQL Database or SQL Server databases. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the Database Engine ( SQL Database or SQL Server). As a result, Always Encrypted provides a separation between those who own the data (and can view it) and those who manage the data (but should have no access). By ensuring on-premises database administrators, cloud database operators, or other high-privileged, but unauthorized users, cannot access the encrypted data, Always Encrypted enables customers to confidently store sensitive data outside of their direct control. This allows organizations to encrypt data at rest and in use for storage in Azure, to enable delegation of on-premises database administration to third parties, or to reduce security clearance requirements for their own DBA staff.
 
-Let us enable Always Encryption for couple of columns in our Clinic Database. 
+In this demo, Always encryption is already enabled for one sample column in **dbo.visits table**. Let us verify. 
 
-1. In SQL Server Management Studio, select your database **Clinic** > **Tables** > **dbo.Patients** > **Encrypt Columns**.
+1. In SQL Server Management Studio, select your database **Clinic** > **Tables** > **dbo.Visits** > **Encrypt Columns**.
 
-![](images/alwaysenc.png)
+![](images/sqlencryption1.png)
 
 2. You will get a pop-up window, where you will enable encryption. So select **Next**.
 
 ![](images/alwaysenc1.png)
 
-3. Check the box for **Birth Date** and for **choose type** select **Randomized**.
+3. Here you'll see the column named "Reason" is already encrypted.
 
-![](images/alwaysenc2.png)
+![](images/sqlencryption2.png)
 
-4. Select **Next**. On next step, select **Azure Key Vault** and then click on **sign in** button.
+4. Now, Let us cancel this wizard and verify that it works by running a query in SQL Server Management Studio. 
 
-![](images/alwaysenc3.png)
+5. In SQL Server Management Studio, select your database **Clinic** > **Tables** > **dbo.Visits** > right click and Select **Select top 100 rows**.  Notice that Reason column have encrypted data. 
 
-5. An authentication window will appear on the screen. Enter you azure username and password.
+![](images/sqlencryption3.png)
 
-6. Next, select you **Subscription** and then select the Key Vault provided you in resource group **-SQL** from the dropdown.
-
-![](images/sqlsecmasterkey.png)
-
-7. Select **Next**. Then select **Proceed to finish now** and select **next** again.
-
-![](images/sqlsecalwaysencryptedrun.png)
-
-8. Review the choices made and then select **Finish**.
-
-![](images/sqlsecalwaysencryptedsummary.png)
-
-9. You will see the always encryption is now comppleted. 
-
-![](images/sqlalwaysencryptfinal.png)
+![](images/sqlencryption4.png)
 
 ### Task 2: Enable Advanced Data Security for Azure SQL Database
 Advanced data security is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, surfacing and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database. It provides a single go-to location for enabling and managing these capabilities.
 
 Let us enable Azure Advanced Data Security for our Clinic Database Server. 
 
-1. Open Resource Group with suffix **-SQL**, navigate to the SQL Server. Select **Advanced Data Security** under Security.
+1. Open Resource Group with prefix **SQL-**, navigate to the SQL Server. Select **Advanced Data Security** under Security.
 2. Use the following configurations:
 * Advanced Data Security: **On**
 * Subscription: **Choose your subscription**
 * Storage Account: **Choose your existing storage account**
 * Periodic recurring scans: **On**
-* Send scan reports to: **username**
+* Send scan reports to: **username** (Your user login username)
 * Send Alerts to: **username**
 
 ![](images/advancedsecurity.png)
@@ -193,16 +182,16 @@ In this task, We'll try to simulate a SQL Injection attack on our database and s
 
 ![](images/contosowebpage.png)
 
-3.	In the **Search Box**, put the following code and  click on **Search**. 
+3.	In the **Search Box**, put the following code and  click on **Search**. You can also copy this from the web page by clicking on **SQLi Hints** and copying 3rd command.
     ' UNION SELECT '0', '1', '2', STUFF((select name from sys.tables FOR XML PATH('')),1,1,''), '4', '5', '6', '7', '8', '2010-10-10' --
 
 ![](images/searchbox.png)
 
-4. This will perform a SQL Injection in the database. Azure SQL Security shoult detect ant notify you about the threat on the email address you provided in last step. 
+4. This will perform a SQL Injection in the database. Azure SQL Security should detect and notify you about the threat on the email address you provided in last step. 
 
-5. Let us check if you recevied an email about it. You can open  https://portal.office.com in another tab in your browser. Login with same Azure Credentials you used to login to azure portal.
+5. Let us check if you recevied an email about it. You can open  https://portal.office.com in another tab in your browser. Login with same Azure Credentials you used to login to azure portal. 
 
-6. Select **Outlook**.
+6. Select **Outlook**. This will prompt to configure time zone, you can configure your local time zone and continue. 
 
 ![](images/outlook.png)
 
@@ -347,7 +336,7 @@ In this exercise, you will enable Dynamic Data Masking (DDM). DDM limits sensiti
 6. Then select **Add**. 
 Your mask rules are ready. Let us review them using SQL Server Management Studio by logging in as a non-admin user. 
 
-7. Launch SQL Server Management Studio and start a new Connection. Enter the Server name from your Azure SQL Database **FQDN** used earlier. Select SQl Authentication and privide user name **demoadmin** and password **Password123**. 
+7. Launch SQL Server Management Studio and start a new Connection. Enter the Server name from your Azure SQL Database **FQDN** used earlier. Select SQl Authentication and privide user name **demoreader** and password **Password123**. 
 
 ![](images/sqlsecnormaluserlogin.png)
 
