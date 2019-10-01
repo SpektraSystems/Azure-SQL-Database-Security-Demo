@@ -324,9 +324,10 @@ In this exercise, you will enable Dynamic Data Masking (DDM). DDM limits sensiti
 
 ![](images/mask1.png)
 
-3. Select **Add**.
-4. Add a mask again by selecting **+Add Mask**.
-5.  Use following configurations:
+5. Select **Add**.
+
+6. Add a mask again by selecting **+Add Mask**.
+7. Use following configurations:
 * Table: select **Visits** from dropdown
 * Column: **PatientID (int)** from dropdown
 * Masking field format: **Number (random number range)**
@@ -335,6 +336,11 @@ In this exercise, you will enable Dynamic Data Masking (DDM). DDM limits sensiti
 ![](images/mask2.png)
 
 6. Then select **Add**. 
+
+7. Save the rules by click **Save** button.
+
+![](images/saveddm.png)
+
 Your mask rules are ready. Let us review them using SQL Server Management Studio by logging in as a non-admin user. 
 
 7. Launch SQL Server Management Studio and start a new Connection. Enter the Server name from your Azure SQL Database **FQDN** used earlier. Select SQl Authentication and privide user name **demoreader** and password **Password123**. 
