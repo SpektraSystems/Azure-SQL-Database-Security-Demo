@@ -15,19 +15,11 @@ This exercise will help you getting access to demo environment and getting start
 
 ### Task 1: Sign Up for pre configured environment
 
-1.	Navigate to bitly link which was provided by instructor and register by providing all required information and clicking on **SUBMIT** button.<br/>
-
-![](images/1registernow.png)
-
-2. Once registration is accepted, you will be automatically redirected to the lab activation page. Click on the **Launch Lab** button.<br/>
-
-![](images/2launchlab.png)
-
-3. You will see the environment details soon below.<br/>
+1.	Once you launch the demo environment, you'll see environment details as demonstratedsoon below.<br/>
 
 ![](images/labdetailpg.png)
 
-4. Please ensure to use provided Azure Credentials during the course of Lab. 
+2. Please ensure to use provided Azure Credentials during the course of Lab. There's a pre-provisioned SQL Database provided, FQDN of the demo environment is also available in details. 
 
 
 ### Task 2: Log into your Azure Portal and Verify access to the Lab
