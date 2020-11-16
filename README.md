@@ -89,7 +89,7 @@ In this task, We'll try accessing our **Clinic** database using SQl Server Manag
 
 3.	You will get a login failure which will state: ***Your client IP address does not have access to the server. Sign in to an Azure Account and create a new firewall rule to enable access.*** We need to add firewall rule to allow access to Azure SQL Database from our machine. 
 
-   ![](images/firewallerror.png)
+    ![](images/firewallerror.png)
 
 ### Task 3: Configure Azure SQL Database Firewall
 To provide access security, SQL Database controls access with Firewall rules that limit connectivity by IP address. You can choose to allow specific IPs for database access and also enable other Azure Services by just enabling Azure Service Access. Let us create firewall rules to enable access to the database. 
