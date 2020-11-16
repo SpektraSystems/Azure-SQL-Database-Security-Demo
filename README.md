@@ -100,7 +100,7 @@ To provide access security, SQL Database controls access with Firewall rules tha
 
    ![](images/firewall.png)
 
-3.**Save** the changes.
+3. **Save** the changes.
 
    ![](images/firewallsave.png)
 
